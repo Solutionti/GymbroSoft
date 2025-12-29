@@ -17,36 +17,38 @@
               </svg> Inicio<span class="badge badge-sm bg-danger ms-auto">Dasboard</span>
             </a>
           </li>
-           <li class="nav-item"><a class="nav-link" href="typography.html">
+           <li class="nav-item">
+              <a class="nav-link" href="<?= base_url('/membresias') ?>">
                 <svg class="nav-icon">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
                 </svg> Membresias</a>
             </li>
-        <li class="nav-item"><a class="nav-link" href="colors.html">
+        <li class="nav-item"><a class="nav-link" href="<?= base_url('/usuarios') ?>">
             <svg class="nav-icon">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
             </svg> Usuarios</a></li>
-        <li class="nav-item"><a class="nav-link" href="typography.html">
+
+        <li class="nav-item"><a class="nav-link" href="<?= base_url('/miembros') ?>">
             <svg class="nav-icon">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
             </svg> Miembros</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="typography.html">
+        <li class="nav-item"><a class="nav-link" href="<?= base_url('/regular') ?>">
             <svg class="nav-icon">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
             </svg> Visita regular</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="typography.html">
+        <li class="nav-item"><a class="nav-link" href="<?= base_url('/clases') ?>">
             <svg class="nav-icon">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
             </svg> Programacion de clases</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="typography.html">
+        <li class="nav-item"><a class="nav-link" href="<?= base_url('/ventas') ?>">
             <svg class="nav-icon">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
             </svg> Ventas</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="typography.html">
+        <li class="nav-item"><a class="nav-link" href="<?= base_url('/pagos') ?>">
             <svg class="nav-icon">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
             </svg> Pagos</a>
@@ -66,7 +68,7 @@
         <li class="nav-item"><a class="nav-link text-primary fw-semibold" href="https://coreui.io/product/bootstrap-dashboard-template/" target="_top">
             <svg class="nav-icon text-primary">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
-            </svg>1.0.0.0</a></li>
+            </svg>  1.0.0.0</a></li>
       </ul>
       <div class="sidebar-footer border-top d-none d-md-flex">
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
