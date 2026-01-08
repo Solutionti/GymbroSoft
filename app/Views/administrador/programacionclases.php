@@ -35,7 +35,11 @@ precio -->
           </div>
           <div class="col-md-4">
             <div class="card mb-4">
-              <div class="card-header">Horarios</div>
+              <div class="card-header">Horarios 
+                <a href="#" data-coreui-toggle="modal" data-coreui-target="#listahorarios">
+                  <i class=" fas fa-calendar-alt text-danger"></i>
+                </a>
+              </div>
                 <div class="card-body">
                   <ol>
                     <li>Cardio rumba - lunes y jueves - 8:00 pm</li>
@@ -61,6 +65,145 @@ precio -->
     </div>
       <?php require_once 'componentes/footer.php'; ?>
     </div>
+
+    <!-- LISTA DE HORARIOS  -->
+<div class="modal fade" id="listahorarios" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="listahorariosLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-uppercase" id="listahorariosLabel">HORARIOS</h5>
+        <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="">Nombre</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <i class="fas fa-dumbbell"></i>
+          </span>
+          <input
+            class="form-control"
+            type="text"
+            id="usuario"
+          >
+        </div>
+        <!--  -->
+        <label for="">Horarios</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <i class="fas fa-calendar"></i>
+          </span>
+          <input
+            class="form-control"
+            type="text"
+            id="usuario"
+          >
+        </div>
+        <!--  -->
+        <label for="">Hora</label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <i class="fas fa-clock"></i>
+          </span>
+          <input
+            class="form-control"
+            type="time"
+            id="usuario"
+          >
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LISTA DE HORARIOS  -->
+<div class="modal fade" id="programaciondeclases" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="programaciondeclasesLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-uppercase" id="programaciondeclasesLabel">programar clase</h5>
+        <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-5">
+            <label for="">Fecha inicial</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-calendar"></i>
+              </span>
+              <input
+                class="form-control"
+                type="date"
+                id="usuario"
+              >
+            </div>
+          </div>
+          <div class="col-md-4">
+          <label for="">Fecha Final</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-calendar"></i>
+              </span>
+              <input
+                class="form-control"
+                type="date"
+                id="usuario"
+              >
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label for="">Hora</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-clock"></i>
+              </span>
+              <input
+                class="form-control"
+                type="time"
+                id="usuario"
+              >
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col-md-12">
+            <label for="">Evento</label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-calendar"></i>
+              </span>
+             
+              <select
+                class="form-control"
+              >
+                <option value=""></option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row">
+          <div class="col-md-12">
+            <label for="">Descripcion</label>
+            <div class="input-group mb-3">
+              <textarea class="form-control" rows="5"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
     <?php require_once 'componentes/scripts.php'; ?>
     <script src="<?= base_url('js/programacionclases.js') ?>"></script>
 </body>

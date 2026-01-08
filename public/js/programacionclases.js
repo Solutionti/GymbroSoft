@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //    }
        dateClick: function(info) {
         console.log(info.dateStr);
+        $("#programaciondeclases").modal("show");
        }
       });
         calendar.render();
