@@ -5,7 +5,11 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
-$routes->get('/', 'Home::index');
+
+$routes->get('/inicio', 'Home::index');
+$routes->get('/', 'Usuarios::iniciarSesion');
+$routes->post('iniciarsesion', 'Usuarios::loginApp');
+$routes->get('/cerrarsesion', 'Usuarios::cerrarSesion');
 
 // Membresias Routes
 $routes->get('/membresias', 'Membresias::index');

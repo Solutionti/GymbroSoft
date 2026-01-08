@@ -17,6 +17,7 @@ class Usuarios extends BaseController {
       return view('administrador/usuarios', $data);
     }
 
+    
     public function getUsuarioId($documento) {
       $data = [
         "usuarios" => $this->usuariosModel->getUsuarioId($documento)
@@ -64,5 +65,39 @@ class Usuarios extends BaseController {
     public function eliminarUsuario($documento) {
 
     }
+
+    //Inicio de sesion de la aplicacion 
+
+    public function iniciarSesion() {
+      return view('iniciarsesion');
+    }
+
+    public function loginApp() {
+      $correo = $this->request->getPost('usuario');
+      $password = $this->request->getPost('password');
+
+      $respuesta = $this->usuariosModel->loginApp($correo, $password);
+      
+
+    if($respuesta == false) {
+      echo "error";
+    }
+    else {
+      session()->set([
+        "codigo" => $respuesta->codigo_usuario,
+        "nombre" => $respuesta->nombre,
+        "apellido" => $respuesta->apellido,
+        "documento" => $respuesta->documento,
+        "rol_usuario" => $respuesta->rol,
+        "estado" => $respuesta->estado,
+        "logeado" => true,
+      ]);
+    }
+    }
+
+    public function cerrarSesion() {
+     session()->destroy();
+     return redirect()->to('/');
+  }
 
 }

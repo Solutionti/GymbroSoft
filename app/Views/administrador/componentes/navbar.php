@@ -11,7 +11,7 @@
       </div>
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
           <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('/') ?>">
+            <a class="nav-link" href="<?= base_url('/inicio') ?>">
               <i class="fas fa-home mx-3"></i> Inicio<span class="badge badge-sm bg-danger ms-auto">Dasboard</span>
             </a>
           </li>
@@ -69,7 +69,9 @@
           </button>
           <ul class="header-nav d-none d-lg-flex">
             <li class="nav-item">
-              <a class="nav-link text-uppercase" href="#">Jerson Galvez Ensuncho</a>
+              <a class="nav-link text-uppercase" href="#">
+                <?= session()->get('nombre') ?>
+              </a>
             </li>
           </ul>
           <ul class="header-nav ms-auto">
@@ -129,10 +131,11 @@
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
                 <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2">Cuenta</div><a class="dropdown-item" href="#">
-                 <svg class="icon me-2">
+                 <!-- <svg class="icon me-2">
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                  </svg> Configuracion</a><a class="dropdown-item" href="#"> 
-                <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
+                  </svg> Configuracion</a><a class="dropdown-item" href="#">  -->
+                <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="<?php echo base_url(); ?>cerrarsesion">
                   <svg class="icon me-2">
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
                   </svg> Cerrar Sesion</a>
