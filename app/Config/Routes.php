@@ -36,3 +36,6 @@ $routes->get('/ventas', 'Ventas::index');
 
 // 
 $routes->get('/pagos', 'Pagos::index');
+
+// 
+$routes->get('/productos', 'Productos::index');

@@ -39,7 +39,7 @@
         <li class="nav-item"><a class="nav-link" href="<?= base_url('/pagos') ?>">
             <i class="fas fa-money-bill-alt mx-3"></i> Pagos</a>
         </li>
-        <li class="nav-item"><a class="nav-link" href="#">
+        <li class="nav-item"><a class="nav-link" href="<?= base_url('/productos') ?>">
             <i class="fas fa-cart-arrow-down mx-3"></i> Productos</a>
         </li>
         <li class="nav-title">Version</li>

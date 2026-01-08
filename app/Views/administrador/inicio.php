@@ -25,7 +25,7 @@
                         <div class="card text-white bg-primary">
                           <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                             <div>
-                              <div class="fs-4 fw-semibold">300 <span class="fs-6 fw-normal">( Total )</span></div>
+                              <div class="fs-4 fw-semibold"><?php echo $deportista->getResult()[0]->total_deportistas; ?><span class="fs-6 fw-normal"> ( Total )</span></div>
                               <div>Deportistas</div>
                             </div>
                             <div class="dropdown">
@@ -47,7 +47,7 @@
 <div class="card text-white bg-info">
                           <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                             <div>
-                              <div class="fs-4 fw-semibold">$6.200 <span class="fs-6 fw-normal">(Diario
+                              <div class="fs-4 fw-semibold">$<?php echo number_format($pago->getResult()[0]->total_pagos, 0, '', '.'); ?> <span class="fs-6 fw-normal">(Diario
                                   )</span></div>
                               <div>Pagos Hoy</div>
                             </div>
@@ -70,7 +70,7 @@
                   <div class="card text-white bg-warning">
                           <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                             <div>
-                              <div class="fs-4 fw-semibold">2.49% <span class="fs-6 fw-normal">(Diario
+                              <div class="fs-4 fw-semibold"><?php echo $visita->getResult()[0]->total_visitas; ?> <span class="fs-6 fw-normal">(Diario
                                   )</span></div>
                               <div>Visitas</div>
                             </div>
@@ -108,11 +108,11 @@
                             <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
                           </svg>
                           <div>Hombres</div>
-                          <div class="ms-auto fw-semibold">43%</div>
+                          <div class="ms-auto fw-semibold">(<?php echo $hombre->getResult()[0]->total_hombres; ?>) <?php echo $hombre->getResult()[0]->total_hombres / $deportista->getResult()[0]->total_deportistas * 100  ?>%</div>
                         </div>
                         <div class="progress-group-bars">
                           <div class="progress progress-thin">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: <?php echo $hombre->getResult()[0]->total_hombres / $deportista->getResult()[0]->total_deportistas * 100  ?>%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
@@ -122,11 +122,11 @@
                             <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user-female"></use>
                           </svg>
                           <div>Mujeres</div>
-                          <div class="ms-auto fw-semibold">37%</div>
+                          <div class="ms-auto fw-semibold">(<?php echo $mujer->getResult()[0]->total_mujeres; ?>) <?php echo $mujer->getResult()[0]->total_mujeres / $deportista->getResult()[0]->total_deportistas * 100  ?>%</div>
                         </div>
                         <div class="progress-group-bars">
                           <div class="progress progress-thin">
-                            <div class="progress-bar bg-danger" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo $mujer->getResult()[0]->total_mujeres / $deportista->getResult()[0]->total_deportistas * 100  ?>%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
                           </div>
                         </div>
                       </div>
@@ -149,6 +149,7 @@
                             </tr>
                           </thead>
                           <tbody>
+                            <?php foreach($activo->getResult() as $activos): ?>
                             <tr class="align-middle">
                               <td class="text-center">
                                 <div class="avatar avatar-md">
@@ -157,111 +158,25 @@
                                     src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
                                     alt="user@email.com"
                                   >
-                                    <span class="avatar-status bg-success"></span>
+                                    <?php if($activos->estado == "Activo") { ?>
+                                      <span class="avatar-status bg-success"></span>
+                                      <?php } else { ?>
+                                        <span class="avatar-status bg-danger"></span>
+                                        <?php } ?>
                                 </div>
                               </td>
                               <td>
-                                <div class="text-nowrap">Jerson Reinel Galvez Ensuncho</div>
-                                <div class="small text-body-secondary text-nowrap"><span>Activo</span> | hace: 5 minutos</div>
-                              </td>
-                            </tr>
-                            <tr class="align-middle">
-                              <td class="text-center">
-                                <div class="avatar avatar-md">
-                                  <img 
-                                    class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
-                                    alt="user@email.com"
-                                  >
-                                    <span class="avatar-status bg-success"></span>
+                                <div class="text-nowrap text-capitalize"><?= $activos->nombre.' '.$activos->apellido; ?></div>
+                                <div class="small text-body-secondary text-nowrap">
+                                   <?php if($activos->estado == "Activo") { ?>
+                                    <span>Activo</span> | en sala de ejercicio
+                                      <?php } else { ?>
+                                        <span>Desconectado</span> | en descanso
+                                        <?php } ?>
                                 </div>
                               </td>
-                              <td>
-                                <div class="text-nowrap">Yiorgos Avraamu</div>
-                                <div class="small text-body-secondary text-nowrap"><span>New</span> | Registered: Jan 1, 2023</div>
-                              </td>
                             </tr>
-                            <tr class="align-middle">
-                              <td class="text-center">
-                                <div class="avatar avatar-md">
-                                  <img 
-                                    class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
-                                    alt="user@email.com"
-                                  >
-                                    <span class="avatar-status bg-success"></span>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="text-nowrap">Yiorgos Avraamu</div>
-                                <div class="small text-body-secondary text-nowrap"><span>New</span> | Registered: Jan 1, 2023</div>
-                              </td>
-                            </tr>
-                            <tr class="align-middle">
-                              <td class="text-center">
-                                <div class="avatar avatar-md">
-                                  <img 
-                                    class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
-                                    alt="user@email.com"
-                                  >
-                                    <span class="avatar-status bg-success"></span>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="text-nowrap">Yiorgos Avraamu</div>
-                                <div class="small text-body-secondary text-nowrap"><span>New</span> | Registered: Jan 1, 2023</div>
-                              </td>
-                            </tr>
-                            <tr class="align-middle">
-                              <td class="text-center">
-                                <div class="avatar avatar-md">
-                                  <img 
-                                    class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
-                                    alt="user@email.com"
-                                  >
-                                    <span class="avatar-status bg-success"></span>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="text-nowrap">Yiorgos Avraamu</div>
-                                <div class="small text-body-secondary text-nowrap"><span>New</span> | Registered: Jan 1, 2023</div>
-                              </td>
-                            </tr>
-                            <tr class="align-middle">
-                              <td class="text-center">
-                                <div class="avatar avatar-md">
-                                  <img 
-                                    class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
-                                    alt="user@email.com"
-                                  >
-                                    <span class="avatar-status bg-success"></span>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="text-nowrap">Yiorgos Avraamu</div>
-                                <div class="small text-body-secondary text-nowrap"><span>New</span> | Registered: Jan 1, 2023</div>
-                              </td>
-                            </tr>
-                            <tr class="align-middle">
-                              <td class="text-center">
-                                <div class="avatar avatar-md">
-                                  <img 
-                                    class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
-                                    alt="user@email.com"
-                                  >
-                                    <span class="avatar-status bg-success"></span>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="text-nowrap">Yiorgos Avraamu</div>
-                                <div class="small text-body-secondary text-nowrap"><span>New</span> | Registered: Jan 1, 2023</div>
-                              </td>
-                            </tr>
-                            
+                            <?php endforeach; ?>
                           </tbody>
                         </table>
                   </div>
