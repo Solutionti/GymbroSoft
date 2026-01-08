@@ -49,7 +49,7 @@ precio -->
                                     src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
                                     alt="user@email.com"
                                   >
-                                    <span class="avatar-status bg-success"></span>
+                                    <span class="avatar-status bg-danger"></span>
                                 </div>
                               </td>
                               <td>
