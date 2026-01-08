@@ -12,7 +12,7 @@ precio -->
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>GymbroSoft - membresias</title>
+    <title>GymbroSoft - Planes</title>
     <?php require_once 'componentes/head.php'; ?>
   </head>
   <body>
@@ -23,7 +23,7 @@ precio -->
             <div class="col-md-8">
                 <div class="container-lg px-4">
                   <div class="card mb-4">
-                    <div class="card-header">Lista de Membresias</div>
+                    <div class="card-header">Lista de Planes</div>
                       <div class="card-body">
                         <div class="table-responsive">
                           <table class="table table-striped table-hover">
@@ -37,24 +37,25 @@ precio -->
                               </tr>
                             </thead>
                             <tbody>
+                              <?php foreach ($membresia->getResult() as $membresias): ?>
                               <tr>
-                                <td>MRB001</td>
-                                <td>RUTINA PRINCIPAL</td>
-                                <td>30</td>
-                                <td>85.000</td>
+                                <td class="text-uppercase">MRB00<?= $membresias->codigo_membresia; ?></td>
+                                <td class="text-uppercase"> <?= $membresias->nombre; ?></td>
+                                <td class="text-uppercase"> <?= $membresias->dias; ?></td>
+                                <td class="text-uppercase">$ <?= number_format($membresias->precio, 0, '', '.'); ?></td>
                                 <td>
                                   <div class="dropdown">
                                     <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                      <a class="dropdown-item" href="#">Ver</a>
-                                      <a class="dropdown-item" href="#">Editar</a>
+                                      <a class="dropdown-item" onclick="getMembresiaId(<?= $membresias->codigo_membresia; ?>)">Ver</a>
                                       <a class="dropdown-item text-danger" href="#">Eliminar</a>
                                     </div>
                                   </div>
                                 </td>
                               </tr>
+                              <?php endforeach; ?>
                             </tbody>
                           </table>
                         </div>
@@ -65,15 +66,15 @@ precio -->
                 <div class="col-md-4">
                   <div class="container-lg px-4">
                     <div class="card mb-4">
-                      <div class="card-header">Agregar Membresia</div>
+                      <div class="card-header">Agregar Plan</div>
                         <div class="card-body">
                           <form>
                             <div class="form-group">
-                                <label for="nombre">Codigo</label>
-                                <input type="text" class="form-control" id="codsigo" readonly>
+                                <label>Codigo</label>
+                                <input type="text" class="form-control" id="codigo" readonly>
                             </div>
                             <div class="form-group mt-2">
-                                <label for="nombre">Nombre</label>
+                                <label>Nombre</label>
                                 <input type="text" class="form-control" id="nombre" >
                             </div>
                             <div class="form-group mt-2">
@@ -84,7 +85,15 @@ precio -->
                                 <label for="precio">Precio</label>
                                 <input type="number" class="form-control" id="precio">
                             </div>
-                            <button type="button" class="btn btn-primary mt-3">Aceptar</button>
+                            <div class="form-group mt-2">
+                                <label for="precio">Estado</label>
+                                <select class="form-control" id="estado">
+                                  <option value="Activo">Activo</option>
+                                  <option value="Inactivo">Inactivo</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-primary mt-3" onclick="crearMembresia()" id="crear">Aceptar</button>
+                            <button type="button" class="btn btn-success mt-3 mx-2 text-white" onclick="actualizarMembresia()" id="actualizar" disabled>Actualizar</button>
                           </form>
                         </div>
                       </div>
@@ -97,5 +106,6 @@ precio -->
         <!--  -->
     </div>
     <?php require_once 'componentes/scripts.php'; ?>
+    <script src="<?= base_url('js/membresias.js') ?>"></script>
 </body>
 </html>

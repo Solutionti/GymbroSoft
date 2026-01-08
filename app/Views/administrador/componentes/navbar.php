@@ -12,46 +12,35 @@
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('/') ?>">
-              <svg class="nav-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-              </svg> Inicio<span class="badge badge-sm bg-danger ms-auto">Dasboard</span>
+              <i class="fas fa-home mx-3"></i> Inicio<span class="badge badge-sm bg-danger ms-auto">Dasboard</span>
             </a>
           </li>
            <li class="nav-item">
               <a class="nav-link" href="<?= base_url('/membresias') ?>">
-                <svg class="nav-icon">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-                </svg> Membresias</a>
+                <i class="fas fa-id-card mx-3"></i> Planes</a>
             </li>
         <li class="nav-item"><a class="nav-link" href="<?= base_url('/usuarios') ?>">
-            <svg class="nav-icon">
-              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-            </svg> Usuarios</a></li>
+            <i class="fas fa-users mx-3"></i> Usuarios</a></li>
 
         <li class="nav-item"><a class="nav-link" href="<?= base_url('/miembros') ?>">
+            <i class="fas fa-dumbbell mx-3"></i> Deportistas</a>
+        </li>
+        <!-- <li class="nav-item"><a class="nav-link" href="<?= base_url('/regular') ?>">
             <svg class="nav-icon">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-            </svg> Miembros</a>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="<?= base_url('/regular') ?>">
-            <svg class="nav-icon">
-              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-            </svg> Visita regular</a>
-        </li>
+            </svg> Visitas regulares</a>
+        </li> -->
         <li class="nav-item"><a class="nav-link" href="<?= base_url('/clases') ?>">
-            <svg class="nav-icon">
-              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-            </svg> Programacion de clases</a>
+            <i class="fas fa-calendar mx-3"></i> Programacion de clases</a>
         </li>
         <li class="nav-item"><a class="nav-link" href="<?= base_url('/ventas') ?>">
-            <svg class="nav-icon">
-              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-            </svg> Ventas</a>
+            <i class="fas fa-cash-register mx-3"></i> Ventas</a>
         </li>
         <li class="nav-item"><a class="nav-link" href="<?= base_url('/pagos') ?>">
-            <svg class="nav-icon">
-              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-            </svg> Pagos</a>
+            <i class="fas fa-money-bill-alt mx-3"></i> Pagos</a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#">
+            <i class="fas fa-cart-arrow-down mx-3"></i> Productos</a>
         </li>
         <li class="nav-title">Version</li>
         <!-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
@@ -66,9 +55,7 @@
           </ul>
         </li> -->
         <li class="nav-item"><a class="nav-link text-primary fw-semibold" href="https://coreui.io/product/bootstrap-dashboard-template/" target="_top">
-            <svg class="nav-icon text-primary">
-              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
-            </svg>  1.0.0.0</a></li>
+          <i class="fas fa-code-branch mx-4"></i> 1.0.0.0</a></li>
       </ul>
       <div class="sidebar-footer border-top d-none d-md-flex">
         <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
@@ -142,12 +129,15 @@
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
                 <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2">Cuenta</div><a class="dropdown-item" href="#">
-                  
+                 <svg class="icon me-2">
+                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
+                  </svg> Configuracion</a><a class="dropdown-item" href="#"> 
                 <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
                   </svg> Cerrar Sesion</a>
-              </div>
+                  
+                </div>
             </li>
           </ul>
         </div>

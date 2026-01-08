@@ -25,7 +25,7 @@ precio -->
                 <div class="card">
                   <div class="card-body">
                     <div class="fs-4 fw-semibold">89.9%</div>
-                      <div>Widget title</div>
+                      <div>Diario de productos</div>
                         <div class="progress progress-thin my-2">
                           <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                           </div>
@@ -37,7 +37,7 @@ precio -->
                    <div class="card">
                           <div class="card-body">
                             <div class="fs-4 fw-semibold">89.9%</div>
-                            <div>Widget title</div>
+                            <div>Diario de membresias</div>
                             <div class="progress progress-thin my-2">
                               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div><small class="text-body-secondary">Widget helper text</small>
@@ -48,7 +48,7 @@ precio -->
 <div class="card">
                           <div class="card-body">
                             <div class="fs-4 fw-semibold">89.9%</div>
-                            <div>Widget title</div>
+                            <div>Venta de productos mensual</div>
                             <div class="progress progress-thin my-2">
                               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div><small class="text-body-secondary">Widget helper text</small>
@@ -59,7 +59,7 @@ precio -->
                     <div class="card">
                           <div class="card-body">
                             <div class="fs-4 fw-semibold">89.9%</div>
-                            <div>Widget title</div>
+                            <div>Total de membresias mensual</div>
                             <div class="progress progress-thin my-2">
                               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div><small class="text-body-secondary">Widget helper text</small>
@@ -88,6 +88,7 @@ precio -->
                               </tr>
                             </thead>
                             <tbody>
+                              <?php foreach($pago->getResult() as $pagos): ?>
                               <tr>
                                   <td class="text-center">
                                   <div class="avatar avatar-md">
@@ -100,14 +101,16 @@ precio -->
                                 </div>
                               </td>
                               <td>
-                                <div class="text-nowrap">Jerson Galvez Ensuncho</div>
-                                <div class="small text-body-secondary text-nowrap"><span>1110542802</span> | Registro: Junio 01, 2025</div>
+                                <div class="text-nowrap text-uppercase"><?= $pagos->nombre .' '. $pagos->apellido; ?></div>
+                                <div class="small text-body-secondary text-nowrap"><span><?= $pagos->documento; ?></span> | Registro: Junio 01, 2025</div>
                               </td>
-                                <td>VTA001</td>
-                                <td>26/12/2025</td>
-                                <td>85.000</td>
-                                <td>Mensual</td>
-                                <td>Pago</td>
+                                <td>VTA00<?= $pagos->codigo_membresia; ?></td>
+                                <td><?= $pagos->fecha_final; ?></td>
+                                <td>$<?= number_format($pagos->total, 0, '', '.'); ?></td>
+                                <td class="text-uppercase" ><?= $pagos->membrete; ?></td>
+                                <td>
+                                  <span class="badge rounded-pill text-bg-success text-white"><?= $pagos->estado; ?></span>
+                                </td>
                                 <td>
                                   <div class="dropdown">
                                     <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -115,12 +118,12 @@ precio -->
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end">
                                       <a class="dropdown-item" href="#">Ver</a>
-                                      <a class="dropdown-item" href="#">Editar</a>
                                       <a class="dropdown-item text-danger" href="#">Eliminar</a>
                                     </div>
                                   </div>
                                 </td>
                               </tr>
+                              <?php endforeach;?>
                             </tbody>
                           </table>
                         </div>

@@ -40,26 +40,27 @@ precio -->
                               </tr>
                             </thead>
                             <tbody>
+                              <?php foreach($usuario->getResult() as $usuarios) : ?>
                               <tr>
                                 <td>
                                   <td class="text-center">
                                 <div class="avatar avatar-md">
                                   <img 
                                     class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
+                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/2.jpg"
                                     alt="user@email.com"
                                   >
                                     <span class="avatar-status bg-success"></span>
                                 </div>
                               </td>
                               <td>
-                                <div class="text-nowrap">Yiorgos Avraamu</div>
-                                <div class="small text-body-secondary text-nowrap"><span>New</span> | Registered: Jan 1, 2023</div>
+                                <div class="text-nowrap text-uppercase"><?= $usuarios->nombre;?></div>
+                                <div class="small text-body-secondary text-nowrap"><span>Administrador</span> | Registrado <?= $usuarios->fecha; ?>, <?= $usuarios->hora; ?></div>
                               </td>
                                 </td>
-                                <td>RUTINA PRINCIPAL</td>
-                                <td>3155639791</td>
-                                <td>Administrador</td>
+                                <td><?= $usuarios->documento; ?></td>
+                                <td><?= $usuarios->telefono; ?></td>
+                                <td><?= $usuarios->rol; ?></td>
                                 <td>Activo</td>
                                 <td>
                                   <div class="dropdown">
@@ -67,13 +68,13 @@ precio -->
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                      <a class="dropdown-item" href="#">Ver</a>
-                                      <a class="dropdown-item" href="#">Editar</a>
+                                      <a class="dropdown-item" onclick="getUsuariosId(<?= $usuarios->documento; ?>)">Ver</a>
                                       <a class="dropdown-item text-danger" href="#">Eliminar</a>
                                     </div>
                                   </div>
                                 </td>
                               </tr>
+                              <?php endforeach; ?>
                             </tbody>
                           </table>
                         </div>
@@ -94,25 +95,26 @@ precio -->
                             </div>
                             <div class="form-group mt-2">
                                 <label for="dias">Documento</label>
-                                <input type="number" class="form-control" id="dias" >
+                                <input type="number" class="form-control" id="documento" >
                             </div>
                             <div class="form-group mt-2">
                                 <label for="precio">Telefono</label>
-                                <input type="number" class="form-control" id="precio">
+                                <input type="number" class="form-control" id="telefono">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="precio">Correo</label>
-                                <input type="number" class="form-control" id="precio">
+                                <input type="text" class="form-control" id="correo">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="precio">Usuario</label>
-                                <input type="text" class="form-control" id="precio">
+                                <input type="text" class="form-control" id="usuario">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="precio">Contraseña</label>
-                                <input type="text" class="form-control" id="precio">
+                                <input type="text" class="form-control" id="password">
                             </div>
-                            <button type="button" class="btn btn-primary mt-3">Aceptar</button>
+                            <button type="button" class="btn btn-primary mt-3" id="crear" onclick="crearUsuarios()">Aceptar</button>
+                            <button type="button" class="btn btn-success mt-3 mx-2 text-white" id="actualizar" disabled onclick="editarUsuarios()">Actualizar</button>
                           </form>
                         </div>
                       </div>
@@ -120,10 +122,11 @@ precio -->
                   </div>
                 </div>
             </div>
+            <?php require_once 'componentes/footer.php'; ?>
         </div>
         <!--  -->
-      <?php require_once 'componentes/footer.php'; ?>
     </div>
     <?php require_once 'componentes/scripts.php'; ?>
+    <script src="<?= base_url('js/usuarios.js') ?>"></script>
 </body>
 </html>
