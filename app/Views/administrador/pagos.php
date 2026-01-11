@@ -24,45 +24,49 @@ precio -->
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <div class="fs-4 fw-semibold">89.9%</div>
+                    <div class="fs-4 fw-semibold">$<?= number_format($pagoDiarioVentas->getResult()[0]->total_venta_diaria, 0, '', '.'); ?></div>
                       <div>Diario de productos</div>
                         <div class="progress progress-thin my-2">
                           <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                           </div>
-                        </div><small class="text-body-secondary">Widget helper text</small>
+                        </div>
+                        <!-- <small class="text-body-secondary">Widget helper text</small> -->
                       </div>
                     </div>
                   </div>
                   <div class="col-md-3">
                    <div class="card">
                           <div class="card-body">
-                            <div class="fs-4 fw-semibold">89.9%</div>
+                            <div class="fs-4 fw-semibold">$<?= number_format($pagoDiarioMembresias->getResult()[0]->total_membresia_diaria, 0, '', '.'); ?></div>
                             <div>Diario de membresias</div>
                             <div class="progress progress-thin my-2">
                               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div><small class="text-body-secondary">Widget helper text</small>
-                          </div>
-                        </div>
-                  </div>
-                  <div class="col-md-3">
-<div class="card">
-                          <div class="card-body">
-                            <div class="fs-4 fw-semibold">89.9%</div>
-                            <div>Venta de productos mensual</div>
-                            <div class="progress progress-thin my-2">
-                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div><small class="text-body-secondary">Widget helper text</small>
+                            </div>
+                            <!-- <small class="text-body-secondary">Widget helper text</small> -->
                           </div>
                         </div>
                   </div>
                   <div class="col-md-3">
                     <div class="card">
                           <div class="card-body">
-                            <div class="fs-4 fw-semibold">89.9%</div>
+                            <div class="fs-4 fw-semibold">$<?= number_format($pagoMesVentas->getResult()[0]->total_venta_mes, 0, '', '.'); ?></div>
+                            <div>Venta de productos mensual</div>
+                            <div class="progress progress-thin my-2">
+                              <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <!-- <small class="text-body-secondary">Widget helper text</small> -->
+                          </div>
+                        </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="card">
+                          <div class="card-body">
+                            <div class="fs-4 fw-semibold">$<?= number_format($pagoMesMembresias->getResult()[0]->total_membresia_mes, 0, '', '.'); ?></div>
                             <div>Total de membresias mensual</div>
                             <div class="progress progress-thin my-2">
                               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                            </div><small class="text-body-secondary">Widget helper text</small>
+                            </div>
+                            <!-- <small class="text-body-secondary">Widget helper text</small> -->
                           </div>
                         </div>
                   </div>
@@ -94,7 +98,7 @@ precio -->
                                   <div class="avatar avatar-md">
                                   <img 
                                     class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
+                                    src="https://ui-avatars.com/api/?name=<?= $pagos->nombre .'+'. $pagos->apellido;?>&size=128&background=4f46e5&color=fff"
                                     alt="user@email.com"
                                   >
                                     <span class="avatar-status bg-success"></span>
@@ -117,8 +121,7 @@ precio -->
                                         <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                      <a class="dropdown-item" href="#">Ver</a>
-                                      <a class="dropdown-item text-danger" href="#">Eliminar</a>
+                                      <a class="dropdown-item" href="#">Imprimir</a>
                                     </div>
                                   </div>
                                 </td>

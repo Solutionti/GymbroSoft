@@ -12,7 +12,11 @@ class Pagos extends BaseController {
 
     public function index(){
       $data = [
-        "pago" => $this->pagosModel->getPagos()
+        "pago" => $this->pagosModel->getPagos(),
+        "pagoDiarioVentas" => $this->pagosModel->pagoDiarioVentas(),
+        "pagoMesVentas" => $this->pagosModel->pagoMesVentas(),
+        "pagoDiarioMembresias" => $this->pagosModel->pagoDiarioMembresias(),
+        "pagoMesMembresias" => $this->pagosModel->pagoMesMembresias()
       ];
       return view('administrador/pagos', $data);
     }

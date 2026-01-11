@@ -16,6 +16,7 @@ class InicioModel extends Model {
     public function countPagos() {
       $pagos = $this->db->table("pagos")
                           ->selectSum('total', 'total_pagos')
+                          ->where("fecha", date('Y-m-d'))
                           ->get();
 
       return $pagos;  

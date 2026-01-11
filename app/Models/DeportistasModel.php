@@ -7,8 +7,9 @@ use CodeIgniter\Model;
 class DeportistasModel extends Model {
 
     public function getDeportistas() {
-      $deportistas = $this->db->table("miembros")
-                          ->select('*')
+      $deportistas = $this->db->table("miembros m")
+                          ->select('m.*, mb.nombre as membresia')
+                          ->join('membresias mb', 'm.membresia = mb.codigo_membresia')
                           ->get();
 
       return $deportistas;

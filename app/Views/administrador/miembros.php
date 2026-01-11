@@ -44,12 +44,13 @@ precio -->
                               <tr>
                                   <td class="text-center">
                                   <div class="avatar avatar-md">
+                                    
                                   <img 
                                     class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/1.jpg"
+                                    src="https://ui-avatars.com/api/?name=<?= $deportistas->nombre .'+'. $deportistas->apellido;?>&size=128&background=4f46e5&color=fff"
                                     alt="user@email.com"
                                   >
-                                    <span class="avatar-status bg-danger"></span>
+                                    <span class="avatar-status bg-success"></span>
                                 </div>
                               </td>
                               <td>
@@ -77,8 +78,7 @@ precio -->
                                   <?php } else { ?>
                                    <td><span class="badge rounded-pill text-bg-success text-white">Pago</span></td>
                                 <?php } ?>
-                                <td><?= $deportistas->membresia;?></td>
-                                
+                                <td class="text-uppercase"><?= $deportistas->membresia;?></td>
                                 <td><?= $deportistas->sexo;?></td>
                                 <td>
                                   <div class="dropdown">
@@ -87,7 +87,7 @@ precio -->
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end">
                                       <a class="dropdown-item" href="#">Ver</a>
-                                      <a class="dropdown-item text-danger" href="#">Eliminar</a>
+                                      <a class="dropdown-item text-danger" href="#">Penalizar</a>
                                     </div>
                                   </div>
                                 </td>

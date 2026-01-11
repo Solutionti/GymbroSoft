@@ -138,7 +138,7 @@ precio -->
               <input
                 class="form-control"
                 type="date"
-                id="usuario"
+                id="fecha_inicial_calendario"
               >
             </div>
           </div>
@@ -151,7 +151,7 @@ precio -->
               <input
                 class="form-control"
                 type="date"
-                id="usuario"
+                id="fecha_final_calendario"
               >
             </div>
           </div>
@@ -180,13 +180,14 @@ precio -->
              
               <select
                 class="form-control"
-              >
-                <option value=""></option>
+              > 
+                <option value="">Seleccione el evento a programar</option>
               </select>
             </div>
           </div>
         </div>
         <!--  -->
+        
         <div class="row">
           <div class="col-md-12">
             <label for="">Descripcion</label>

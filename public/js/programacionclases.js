@@ -40,8 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
     //     alert("holas");
     //    }
        dateClick: function(info) {
-        console.log(info.dateStr);
+        // console.log(info.dateStr);
         $("#programaciondeclases").modal("show");
+        $("#fecha_inicial_calendario").val(info.dateStr);
+        $("#fecha_final_calendario").val(info.dateStr);
        }
       });
         calendar.render();

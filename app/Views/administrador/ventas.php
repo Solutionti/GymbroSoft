@@ -184,7 +184,113 @@ precio -->
         <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="row">
+          <div class="col-md-4">
+<label class="mb-2">Documento (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="nombres_pedido"
+                        autofocus
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-dumbbell text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-4">
+<label class="mb-2">Nombres (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="nombres_pedido"
+                        autofocus
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-user text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-4">
+<label class="mb-2">Apellidos (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="nombres_pedido"
+                        autofocus
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-user text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row mt-3">
+          <div class="col-md-3">
+<label class="mb-2">Telefono (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="nombres_pedido"
+                        autofocus
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-phone text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-6">
+<label class="mb-2">Correo (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="nombres_pedido"
+                        autofocus
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-at text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-3">
+<label class="mb-2">Sexo (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="nombres_pedido"
+                        autofocus
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-venus-mars text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
@@ -203,11 +309,35 @@ precio -->
         <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped table-hover" id="tablaProductosVenta">
+            <thead>
+              <tr class="bg-danger">
+                <th class="bg-danger text-uppercase" >Codigo</th>
+                <th class="bg-danger text-uppercase">Nombre</th>
+                <th class="bg-danger text-uppercase">Precio</th>
+                <th class="bg-danger text-uppercase">Stock</th>
+                <th class="bg-danger text-uppercase" ></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>154658</td>
+                <td>Creatina en polvo</td>
+                <td>23000</td>
+                <td>87</td>
+                <td width="10%">
+                 <input type="radio" class="btn-check ml-4" name="options" id="option1" autocomplete="off">
+                 <label class="btn btn-outline-primary text-white btn-sm ml-4" for="option1">Seleccionar</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <!-- <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button> -->
+        <button type="button" class="btn btn-primary">Aceptar</button>
       </div>
     </div>
   </div>

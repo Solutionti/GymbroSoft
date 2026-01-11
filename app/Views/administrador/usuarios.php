@@ -47,7 +47,7 @@ precio -->
                                 <div class="avatar avatar-md">
                                   <img 
                                     class="avatar-img"
-                                    src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/2.jpg"
+                                    src="https://ui-avatars.com/api/?name=<?= $usuarios->nombre ?>&size=128&background=4f46e5&color=fff"
                                     alt="user@email.com"
                                   >
                                     <span class="avatar-status bg-success"></span>
