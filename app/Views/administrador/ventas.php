@@ -156,6 +156,8 @@ precio -->
               <button
                 class="btn btn-success btn-lg btn-block text-white"
                 type="button"
+                data-coreui-toggle="modal" data-coreui-target="#validacioningreso"
+            
                >
                  Crear venta
               </button>
@@ -192,7 +194,7 @@ precio -->
                         type="number"
                         class="form-control form-control-sm"
                         id="nombres_pedido"
-                        autofocus
+                        
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -209,7 +211,7 @@ precio -->
                         type="number"
                         class="form-control form-control-sm"
                         id="nombres_pedido"
-                        autofocus
+                        
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -226,7 +228,7 @@ precio -->
                         type="number"
                         class="form-control form-control-sm"
                         id="nombres_pedido"
-                        autofocus
+                        
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -246,7 +248,7 @@ precio -->
                         type="number"
                         class="form-control form-control-sm"
                         id="nombres_pedido"
-                        autofocus
+                        
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -263,7 +265,7 @@ precio -->
                         type="number"
                         class="form-control form-control-sm"
                         id="nombres_pedido"
-                        autofocus
+                        
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -280,7 +282,7 @@ precio -->
                         type="number"
                         class="form-control form-control-sm"
                         id="nombres_pedido"
-                        autofocus
+                        
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -338,6 +340,44 @@ precio -->
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button> -->
         <button type="button" class="btn btn-primary">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INGRESO A CENTRO DE ACONDICIONAMIENTO -->
+<div class="modal fade" id="validacioningreso" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="validacioningresoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-uppercase" id="validacioningresoLabel">VALIDACION DEL DEPORTISTA</h5>
+        <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-12">
+            <label class="mb-2">Digite el documento a validar</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="nombres_pedido"
+                        autofocus
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-dumbbell text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        
       </div>
     </div>
   </div>
