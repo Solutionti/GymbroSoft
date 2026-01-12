@@ -33,6 +33,8 @@ $routes->get('/clases', 'Clases::index');
 
 // 
 $routes->get('/ventas', 'Ventas::index');
+$routes->get('/ventas/getproductoventa/(:num)', 'Ventas::getproductoventa/$1');
+$routes->get('/deportistas/getDeportista/(:num)', 'Ventas::getDeportistaId/$1');
 
 // 
 $routes->get('/pagos', 'Pagos::index');

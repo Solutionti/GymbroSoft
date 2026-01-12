@@ -26,7 +26,7 @@ precio -->
                     <div class="card-header">Lista de Usuarios</div>
                       <div class="card-body">
                         <div class="table-responsive">
-                          <table class="table table-striped table-hover">
+                          <table class="table table-striped table-hover" id="tabla-usuarios">
                             <thead>
                               <tr> 
                                 <th class="text-uppercase bg-danger"></th>

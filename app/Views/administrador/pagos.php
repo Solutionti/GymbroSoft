@@ -78,7 +78,7 @@ precio -->
             <div class="card-header">Pagos</div>
               <div class="card-body">
                <div class="table-responsive">
-                          <table class="table table-striped table-hover">
+                          <table class="table table-striped table-hover" id="tabla-pagos">
                             <thead>
                               <tr> 
                                 <th class="text-uppercase bg-danger"></th>
@@ -138,5 +138,6 @@ precio -->
       <?php require_once 'componentes/footer.php'; ?>
     </div>
     <?php require_once 'componentes/scripts.php'; ?>
+    <script src="<?= base_url('js/pagos.js') ?>"></script>
 </body>
 </html>

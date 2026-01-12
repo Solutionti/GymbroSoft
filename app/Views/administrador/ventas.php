@@ -35,7 +35,7 @@ precio -->
                       <input 
                         type="number"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        id="codigo_deportista"
                         autofocus
                       >
                       <a
@@ -50,8 +50,8 @@ precio -->
                     <label class="mb-2">Nombres</label>
                     <input 
                       type="text"
-                      class="form-control form-control-sm"
-                      id="nombres_pedido"
+                      class="form-control form-control-sm text-uppercase"
+                      id="nombre_ventas"
                       readonly
                     >
                   </div>
@@ -59,8 +59,8 @@ precio -->
                     <label class="mb-2">Apellidos</label>
                     <input 
                       type="text"
-                      class="form-control form-control-sm"
-                      id="nombres_pedido"
+                      class="form-control form-control-sm text-uppercase"
+                      id="apellido_ventas"
                       readonly
                     >
                   </div>
@@ -91,21 +91,18 @@ precio -->
                  <div class="row mt-3">
                   <h6>Membresias</h6>
                   <div class="col-md-12">
-
-                    <input type="checkbox" class="btn-check" id="btn-check1" autocomplete="off">
-                    <label class="btn btn-outline-danger text-white" for="btn-check1">Diaria</label>
-
-                    <input type="checkbox" class="btn-check" id="btn-check2" autocomplete="off">
-                    <label class="btn btn-outline-danger text-white" for="btn-check2">Mensual</label>
-
-                    <input type="checkbox" class="btn-check" id="btn-check3" autocomplete="off">
-                    <label class="btn btn-outline-danger text-white" for="btn-check3">Trimestral</label>
-
-                    <input type="checkbox" class="btn-check" id="btn-check4" autocomplete="off">
-                    <label class="btn btn-outline-danger text-white" for="btn-check4">Semestral</label>
-
-                    <input type="checkbox" class="btn-check" id="btn-check5" autocomplete="off">
-                    <label class="btn btn-outline-danger text-white" for="btn-check5">Anual</label>
+                    <?php foreach ($membresia->getResult() as $membresias): ?>
+                    <input 
+                      type="checkbox"
+                      class="btn-check"
+                      id="<?=  $membresias->nombre; ?>"
+                      onclick="asociarMembresia(<?=  $membresias->codigo_membresia; ?>)"
+                      autocomplete="off"
+                    >
+                      <label class="btn btn-outline-danger text-white text-capitalize" for="<?=  $membresias->nombre; ?>">
+                        <?=  $membresias->nombre; ?>
+                      </label>
+                    <?php endforeach; ?>
 
                   </div>
                  </div>
@@ -115,9 +112,9 @@ precio -->
                     <label class="mb-2">Codigo del producto</label>
                     <div class="input-group">
                       <input 
-                        type="number"
+                        type="text"
                         class="form-control form-control-lg"
-                        id="fecha_final"
+                        id="codigo_producto"
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -139,17 +136,26 @@ precio -->
                 <h4 class="mb-4 mt-1 h5  font-weight-bold text-uppercase">Detalle del pedido</h4>
                 <hr>
                 <dl class="row contenido_detalle" id="contenido_detalle">
-                  <pre>
-                    mensualidad x1 mes $85.000
-                  </pre>
+                  <!-- <div>
+                    <div class="row">
+                      <div class="col-md-9">
+                        <i class=" fas fa-times mt-1" title="eliminar"></i> <span class="title text-uppercase">fefeefefecr eatina en polvo</span> - $23,000
+                      </div>
+                      <div class="col-md-2">
+                        <span>
+                          <input type="number" class="form-control form-control-sm" style="width:60px; font-size:12px; text-align:center;" value="1" min="1" />
+                        </span>
+                      </div>
+                    </div>
+                  </div> -->
                 </dl>
                 <hr>
                 <dl class="row">
                   <dt class="col-sm-8 text-uppercase">
                     Total de la venta
                   </dt>
-                  <dt class="col-sm-4 itemCartTotalDetalle text-uppercase">
-                    $200.000
+                  <dt class="col-sm-4 itemCartTotalDetalle text-uppercase" id="totalventa">
+                    $0
                   </dt>
                 </dl>
               </div>
@@ -311,7 +317,9 @@ precio -->
         <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="table-responsive">
+        <div class="row">
+          <div class="col-md-12">
+          <div class="table-responsive">
           <table class="table table-bordered table-striped table-hover" id="tablaProductosVenta">
             <thead>
               <tr class="bg-danger">
@@ -323,19 +331,24 @@ precio -->
               </tr>
             </thead>
             <tbody>
+              <?php foreach ($producto->getResult() as $productos): ?>
               <tr>
-                <td>154658</td>
-                <td>Creatina en polvo</td>
-                <td>23000</td>
-                <td>87</td>
+                <td><?= $productos->barras; ?></td>
+                <td class="text-uppercase"><?= $productos->nombre; ?></td>
+                <td>$<?= number_format($productos->precio_venta, 0, ',', '.'); ?></td>
+                <td><?= $productos->stock; ?></td>
                 <td width="10%">
                  <input type="radio" class="btn-check ml-4" name="options" id="option1" autocomplete="off">
                  <label class="btn btn-outline-primary text-white btn-sm ml-4" for="option1">Seleccionar</label>
                 </td>
               </tr>
+              <?php endforeach; ?>
             </tbody>
           </table>
         </div>
+          </div>
+        </div>
+        
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button> -->
@@ -356,7 +369,7 @@ precio -->
       <div class="modal-body">
         <div class="row">
           <div class="col-md-12">
-            <label class="mb-2">Digite el documento a validar</label>
+            <label class="mb-2">Digite el Documento</label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -372,6 +385,169 @@ precio -->
                       </a>
                     </div>
           </div>
+          <!--  -->
+          <style>
+        .athlete-card {
+            max-width: 320px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .athlete-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-header-custom {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.9) 0%, rgba(255, 87, 34, 0.9) 100%),
+                        url('https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=https://ejemplo-gym.com/carlos-rodriguez') center/cover;
+            padding: 0;
+            position: relative;
+            height: 70px;
+        }
+        
+        .athlete-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 4px solid white;
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            object-fit: cover;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            color: #666;
+        }
+        
+        .card-body-custom {
+            padding-top: 60px;
+            text-align: center;
+        }
+        
+        .athlete-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .athlete-specialty {
+            color: #FF5722;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+            padding: 15px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FF5722;
+        }
+        
+        .stat-label {
+            font-size: 10px;
+            color: #777;
+            text-transform: uppercase;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, #FF9800 0%, #FF5722 100%);
+            border: none;
+            padding: 10px 35px;
+            border-radius: 25px;
+            color: white;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .contact-btn:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%);
+        }
+    </style>
+          <div class="col-md-8 mt-4 offset-md-2">
+                 <div class="card athlete-card">
+        <div class="card-header-custom">
+            <div class="athlete-photo">
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+        <div class="card-body card-body-custom">
+            <h3 class="athlete-name text-white">Carlos Rodríguez</h3>
+            <p class="athlete-specialty">CLIENTE PREMIUM ZONAFIT</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">MES</div>
+                    <div class="stat-label">Menbresia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number text-success">PAGO</div>
+                    <div class="stat-label">Estado</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Dias</div>
+                </div>
+            </div>
+            
+            <p class="text-muted mb-3" style="font-size: 13px; padding: 0 15px;">
+                Deportista premium enfocado en disciplina, rendimiento, constancia y bienestar físico integral.
+            </p>
+            
+            <!-- <button class="contact-btn mb-3">
+                <i class="fas fa-envelope me-2"></i>Contactar
+            </button> -->
+        </div>
+    </div>
+          </div>
           
         </div>
         
@@ -382,7 +558,6 @@ precio -->
     </div>
   </div>
 </div>
-
     <?php require_once 'componentes/scripts.php'; ?>
     <script src="<?= base_url('js/ventas.js') ?>"></script>
 </body>

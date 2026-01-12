@@ -24,7 +24,7 @@ precio -->
             <div class="card-header">Deportistas</div>
               <div class="card-body">
                 <div class="table-responsive">
-                          <table class="table table-striped table-hover">
+                          <table class="table table-striped table-hover" id="tabla-miembros">
                             <thead>
                               <tr> 
                                 <th class="text-uppercase bg-danger"></th>
@@ -104,5 +104,6 @@ precio -->
       <?php require_once 'componentes/footer.php'; ?>
     </div>
     <?php require_once 'componentes/scripts.php'; ?>
+    <script src="<?= base_url('js/miembros.js') ?>"></script>
 </body>
 </html>

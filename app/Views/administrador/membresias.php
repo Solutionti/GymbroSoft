@@ -26,7 +26,7 @@ precio -->
                     <div class="card-header">Lista de Planes</div>
                       <div class="card-body">
                         <div class="table-responsive">
-                          <table class="table table-striped table-hover">
+                          <table class="table table-striped table-hover" id="tabla-membresias">
                             <thead>
                               <tr> 
                                 <th class="text-uppercase bg-danger">Codigo</th>
