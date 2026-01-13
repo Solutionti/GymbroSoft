@@ -55,7 +55,7 @@ precio -->
                       readonly
                     >
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-3">
                     <label class="mb-2">Apellidos</label>
                     <input 
                       type="text"
@@ -63,6 +63,12 @@ precio -->
                       id="apellido_ventas"
                       readonly
                     >
+                  </div>
+                  <div class="col-md-1 mt-4">
+                    <div class="form-check form-switch form-switch-lg">
+                      <input class="form-check-input mt-3" type="checkbox" id="flexSwitchCheckDefaultLg">
+                      <label class="form-check-label" for="flexSwitchCheckDefaultLg"></label>
+                   </div>
                   </div>
                  </div>
                  <!--  -->
@@ -133,7 +139,7 @@ precio -->
             
             <div class="card z-depth-0 border border-light rounded-0">
               <div class="card-body">
-                <h4 class="mb-4 mt-1 h5  font-weight-bold text-uppercase">Detalle del pedido</h4>
+                <h4 class="mb-4 mt-1 h5  font-weight-bold text-uppercase">Detalle de la venta</h4>
                 <hr>
                 <dl class="row contenido_detalle" id="contenido_detalle">
                   <!-- <div>
@@ -162,9 +168,9 @@ precio -->
               <button
                 class="btn btn-success btn-lg btn-block text-white"
                 type="button"
-                data-coreui-toggle="modal" data-coreui-target="#validacioningreso"
-            
-               >
+                onclick="finalizarVenta()"
+                >
+                <!-- data-coreui-toggle="modal" data-coreui-target="#validacioningreso" -->
                  Crear venta
               </button>
             </div>
@@ -323,7 +329,7 @@ precio -->
           <table class="table table-bordered table-striped table-hover" id="tablaProductosVenta">
             <thead>
               <tr class="bg-danger">
-                <th class="bg-danger text-uppercase" >Codigo</th>
+                <th class="bg-danger text-uppercase" ><i class="fas fa-barcode"></i> Codigo</th>
                 <th class="bg-danger text-uppercase">Nombre</th>
                 <th class="bg-danger text-uppercase">Precio</th>
                 <th class="bg-danger text-uppercase">Stock</th>

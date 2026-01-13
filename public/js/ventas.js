@@ -1,6 +1,6 @@
 const tbody = document.querySelector('.tbody');
 let carrito = [];
-
+let totalPedidos = 0;
 $(document).ready( function () {
   $('#tablaProductosVenta').DataTable({
     "lengthChange": false,
@@ -98,7 +98,7 @@ function renderCarrito(){
         producto.innerHTML = `
             <div class="row">
   <div class="col-md-9">
-    <i class=" fas fa-times mt-1 delete" title="eliminar"></i> <span class="title text-uppercase">${item.nombre}</span> - $${precio.toLocaleString(undefined, {
+    <i class=" fas fa-times mt-1 delete text-danger" title="eliminar"></i> <span class="title text-uppercase">${item.nombre}</span> - $${precio.toLocaleString(undefined, {
                 minimumFractionDigits: 0,
                 maximumFractionDigits: 0
             })}
@@ -147,6 +147,7 @@ function sumaCantidad(e){
     totalPedido = total;
     $("#total").val(totalPedido);
     document.getElementById("totalventa").innerHTML = '$' + totalPedido.toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+    totalPedidos = totalPedido;
   }
 
   function removeItemCarrito(nombre){
@@ -207,8 +208,50 @@ function sumaCantidad(e){
         }
       } 
     });
+  }
 
-    
+  function finalizarVenta() {
+    if(carrito.length === 0) {
+      alert("El carrito está vacío. Agrega productos antes de finalizar la venta.");
+      return;
+    }
+
+    let deportista = $("#codigo_deportista").val(),
+        fecha_inicio = $("#fecha_inicial").val(),
+        fecha_final = $("#fecha_final").val(),
+        url = baseurl + "ventas/finalizarVenta";
+
+    let ventas = [];
+    for (let i = 0; i < carrito.length; i++) {
+        ventas [i] = carrito[i];
+    }
+
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: {
+        deportista: deportista,
+        ventas: ventas,
+        total: totalPedidos,
+        fecha_inicio: fecha_inicio,
+        fecha_final: fecha_final
+      },
+
+      success: function (response) {
+        if(response == "error") {
+          alert("Error al procesar la venta. Inténtalo de nuevo.");
+        }
+        else {
+          alert("Venta realizada con éxito.");
+          setTimeout(reloadPage, 3000);
+         
+        }
+      }
+    });
+  }
+
+  function reloadPage() {
+    location.reload();
   }
 
 
