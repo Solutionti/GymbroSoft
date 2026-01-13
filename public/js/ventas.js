@@ -27,8 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
     let fechainicial = $("#fecha_inicial").val();
     const fecha = new Date(fechainicial);
     
-      fecha.setDate(fecha.getDate() + 30);
-      $("#fecha_final").val(fecha.toISOString().split('T')[0]); 
+    fecha.setDate(fecha.getDate() + 30);
+    $("#fecha_final").val(fecha.toISOString().split('T')[0]);
+    
+    $("#validacioningreso").modal('show');
+    // document.getElementById("documento_validacion").focus();
+    // $("#documento_validacion").focus();
+
+    
 });
 
 $("#fecha_inicial").on("change", function () {
@@ -172,8 +178,36 @@ function sumaCantidad(e){
         if(response == "error") {
         }
         else {
-        $("#nombre_ventas").val(response.nombre);
-        $("#apellido_ventas").val(response.apellido);
+          $("#nombre_ventas").val(response.nombre);
+          $("#apellido_ventas").val(response.apellido);
+
+          $validacion = $('#sesionvalidacion').is(':checked');
+          if($validacion == true) {
+            if(response.membresia == 0) {
+              membresiaact = "NP";
+              dias = 0;
+            }
+            else {
+              membresiaact = "PAGO";
+              dias = 15;
+
+            }
+            $("#offcanvasRight").offcanvas('show');
+
+            document.getElementById("tarjeta_deportista").innerHTML =
+            `
+            <div class="card athlete-card"><div class="card-header-custom">
+            <div class="athlete-photo"><i class="fas fa-user"></i></div></div>
+            <div class="card-body card-body-custom"><h3 class="athlete-name text-white text-capitalize">${response.nombre + " " + response.apellido}</h3><p class="athlete-specialty">CLIENTE PREMIUM ZONAFIT</p>
+            <div class="stats-container"><div class="stat-item"><div class="stat-number">${response.membresia}</div><div class="stat-label">Menbresia</div></div>
+            <div class="stat-item"><div class="stat-number text-success">${membresiaact}</div><div class="stat-label">Estado</div></div>
+            <div class="stat-item"><div class="stat-number">${dias}</div><div class="stat-label">Dias</div></div></div>
+            <p class="text-muted mb-3" style="font-size: 13px; padding: 0 15px;">Deportista premium enfocado en disciplina, rendimiento, constancia y bienestar físico integral.</p>
+            </div></div>
+            `;
+          }
+          else {
+          }
         }
       }
     });   
@@ -249,6 +283,78 @@ function sumaCantidad(e){
       }
     });
   }
+
+  function crearDeportista() {
+    let url = baseurl + "ventas/crearDeportista";
+    let documento = $("#documento_deportista").val(),
+        nombre = $("#nommbres_deportista").val(),
+        apellido = $("#apellidos_deportista").val(),
+        telefono = $("#telefono_deportista").val(),
+        correo = $("#correo_deportista").val(),
+        sexo = $("#sexo_deportista").val();
+
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: {
+        documento: documento,
+        nombre: nombre,
+        apellido: apellido,
+        telefono: telefono,
+        correo: correo,
+        sexo: sexo
+      },
+
+      success: function (response) {
+        if(response == "error") {
+          alert("Error al crear el deportista. Inténtalo de nuevo.");
+        }
+        else {
+          alert("Deportista creado con éxito.");
+          $("#creardeportista").modal('hide');
+          $("#codigo_deportista").val(documento); 
+          $("#nombre_ventas").val(nombre); 
+          $("#apellido_ventas").val(apellido); 
+        }
+      }
+    });
+  }
+
+  $("#sesionvalidacion").on("change", function () {
+    var url = baseurl + '/ventas/CrearVariableSesion';
+    if($(this).is(":checked")) {
+  
+    $.ajax({
+      url: url,
+      method: 'POST',
+      data: {codigo: 1},
+      success: function(response) {
+        
+        setTimeout(reloadPage, 100);
+    },
+    error: function() {
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      });
+    }
+  });
+    }
+    else {
+     $.ajax({
+      url: url,
+      method: 'POST',
+      data: {codigo: 0},
+      success: function(response) {
+        
+        setTimeout(reloadPage, 100);
+    },
+    error: function() {
+      
+    }
+  });
+    }
+  });
 
   function reloadPage() {
     location.reload();

@@ -118,4 +118,23 @@ class VentasModel extends Model {
              ->insert($detalle);
   }
 
+  public function crearDeportista($data) {
+    $deportista = [
+      "nombre" => $data["nombre"],
+      "apellido" => $data["apellido"],
+      "documento" => $data["documento"],
+      "telefono" => $data["telefono"],
+      "correo" => $data["correo"],
+      "sexo" => $data["sexo"],
+      "fecha_inicio" => "",
+      "fecha_final" => "",
+      "membresia" => "",
+      "estado" => "Activo",
+      "usuario" => session()->get('documento'),
+      "fecha" => date('Y-m-d')
+    ];
+    $this->db->table("miembros")
+             ->insert($deportista);
+  }
+
 }

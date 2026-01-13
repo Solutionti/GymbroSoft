@@ -100,6 +100,31 @@ class Ventas extends BaseController {
       $this->ventasModel->actualizarDeportista($data4);
     }
 
+    public function crearDeportista() {
+      $nombre = $this->request->getPost('nombre');
+      $apellido = $this->request->getPost('apellido');
+      $documento = $this->request->getPost('documento');
+      $telefono = $this->request->getPost('telefono');
+      $correo = $this->request->getPost('correo');
+      $sexo = $this->request->getPost('sexo');
+
+      $data = [
+        "nombre" => $nombre,
+        "apellido" => $apellido,
+        "documento" => $documento,
+        "telefono" => $telefono,
+        "correo" => $correo,
+        "sexo" => $sexo
+      ];
+      $this->ventasModel->crearDeportista($data);  
+    }
+
+    public function CrearVariableSesion() {
+    $inventario = $this->request->getPost('codigo');
+    session()->set('validacion', $inventario);
+    
+  }
+
 
 
 }

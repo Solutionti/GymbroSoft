@@ -48,3 +48,61 @@ document.addEventListener('DOMContentLoaded', function() {
       });
         calendar.render();
     });
+
+function crearHorario() {
+  let nombre = document.getElementById("nombre_horario").value;
+  let horarios = document.getElementById("horarios_clase").value;
+  let hora = document.getElementById("hora_clase").value;
+  let url = baseurl + "clases/crearHorario";
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: {
+      nombre: nombre,
+      horarios: horarios,
+      hora: hora
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response.success) {
+        alert("Horario creado con exito");
+        location.reload();
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Error en la solicitud AJAX:", status, error);
+    }
+  });
+}
+
+function crearClaseCalendario() {
+  let fechainicial = $("#fecha_inicial_calendario").val();
+  let fechafinal = $("#fecha_final_calendario").val();
+  let hora = $("#hora_calendario").val();
+  let evento = $("#evento_calendario").val();
+  let descripcion = $("#descripcion_calendario").val();
+  let url = baseurl + "clases/crearClaseCalendario";
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: {
+      fechainicial: fechainicial,
+      fechafinal: fechafinal,
+      hora: hora,
+      evento: evento,
+      descripcion: descripcion
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response.success) {
+        alert("Clase programada con exito");
+        location.reload();
+      }
+    },
+    error: function (xhr, status, error) {
+      console.error("Error en la solicitud AJAX:", status, error);
+    }
+  });
+}

@@ -29,7 +29,7 @@ precio -->
               <div class="tab-pane fade in show active" id="tabCheckoutBilling123" role="tabpanel">
                 <!-- aca va el contenido -->
                  <div class="row">
-                  <div class="col-md-4">
+                  <div class="col-md-11">
                     <label class="mb-2">Codigo Deportista (*)</label>
                     <div class="input-group">
                       <input 
@@ -46,7 +46,28 @@ precio -->
                       </a>
                     </div>
                   </div>
-                  <div class="col-md-4">
+                  <div class="col-md-1 mt-4">
+                    <div class="form-check form-switch form-switch-lg">
+                      <?php if(session()->get('validacion') == 0) { ?>
+                      <input
+                        class="form-check-input mt-3"
+                        type="checkbox"
+                        id="sesionvalidacion"
+                      >
+                      <?php } else { ?>
+                      <input
+                        class="form-check-input mt-3"
+                        type="checkbox"
+                        id="sesionvalidacion"
+                        checked
+                        >
+                        <?php } ?>
+                   </div>
+                  </div>
+                 </div>
+                 <!--  -->
+                 <div class="row mt-2">
+                  <div class="col-md-6">
                     <label class="mb-2">Nombres</label>
                     <input 
                       type="text"
@@ -55,7 +76,7 @@ precio -->
                       readonly
                     >
                   </div>
-                  <div class="col-md-3">
+                  <div class="col-md-6">
                     <label class="mb-2">Apellidos</label>
                     <input 
                       type="text"
@@ -63,12 +84,6 @@ precio -->
                       id="apellido_ventas"
                       readonly
                     >
-                  </div>
-                  <div class="col-md-1 mt-4">
-                    <div class="form-check form-switch form-switch-lg">
-                      <input class="form-check-input mt-3" type="checkbox" id="flexSwitchCheckDefaultLg">
-                      <label class="form-check-label" for="flexSwitchCheckDefaultLg"></label>
-                   </div>
                   </div>
                  </div>
                  <!--  -->
@@ -170,6 +185,7 @@ precio -->
                 type="button"
                 onclick="finalizarVenta()"
                 >
+                <!-- data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasRight" aria-controls="offcanvasRight" -->
                 <!-- data-coreui-toggle="modal" data-coreui-target="#validacioningreso" -->
                  Crear venta
               </button>
@@ -205,7 +221,7 @@ precio -->
                       <input 
                         type="number"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        id="documento_deportista"
                         
                       >
                       <a
@@ -220,10 +236,9 @@ precio -->
 <label class="mb-2">Nombres (*)</label>
                     <div class="input-group">
                       <input 
-                        type="number"
+                        type="text"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
-                        
+                        id="nommbres_deportista"
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -234,13 +249,12 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-<label class="mb-2">Apellidos (*)</label>
+             <label class="mb-2">Apellidos (*)</label>
                     <div class="input-group">
                       <input 
-                        type="number"
+                        type="text"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
-                        
+                        id="apellidos_deportista"
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -259,7 +273,7 @@ precio -->
                       <input 
                         type="number"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        id="telefono_deportista"
                         
                       >
                       <a
@@ -274,9 +288,9 @@ precio -->
 <label class="mb-2">Correo (*)</label>
                     <div class="input-group">
                       <input 
-                        type="number"
+                        type="text"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        id="correo_deportista"
                         
                       >
                       <a
@@ -290,12 +304,15 @@ precio -->
           <div class="col-md-3">
 <label class="mb-2">Sexo (*)</label>
                     <div class="input-group">
-                      <input 
-                        type="number"
+                      
+                      <select
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
-                        
+                        id="sexo_deportista"
                       >
+                        <option value="">Seleccione una opcion</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                      </select>
                       <a
                         class="input-group-append input-group-text"
                         data-coreui-toggle="modal" data-coreui-target="#creardeportista"
@@ -308,7 +325,7 @@ precio -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" onclick="crearDeportista()">Guardar</button>
       </div>
     </div>
   </div>
@@ -365,34 +382,14 @@ precio -->
 </div>
 
 <!-- INGRESO A CENTRO DE ACONDICIONAMIENTO -->
-<div class="modal fade" id="validacioningreso" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="validacioningresoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-uppercase" id="validacioningresoLabel">VALIDACION DEL DEPORTISTA</h5>
-        <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-12">
-            <label class="mb-2">Digite el Documento</label>
-                    <div class="input-group">
-                      <input 
-                        type="number"
-                        class="form-control form-control-sm"
-                        id="nombres_pedido"
-                        autofocus
-                      >
-                      <a
-                        class="input-group-append input-group-text"
-                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
-                      >
-                        <i id="changePassIcon" class="fas fa-dumbbell text-morado"></i>
-                      </a>
-                    </div>
-          </div>
-          <!--  -->
-          <style>
+ <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasRightLabel">VALIDACION DEL DEPORTISTA</h5>
+    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="row mt-5">
+      <style>
         .athlete-card {
             max-width: 320px;
             border-radius: 20px;
@@ -518,8 +515,8 @@ precio -->
             background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%);
         }
     </style>
-          <div class="col-md-8 mt-4 offset-md-2">
-                 <div class="card athlete-card">
+    <div class="col-md-8 mt-4 offset-md-2" id="tarjeta_deportista">
+      <!-- <div class="card athlete-card">
         <div class="card-header-custom">
             <div class="athlete-photo">
                 <i class="fas fa-user"></i>
@@ -528,42 +525,31 @@ precio -->
         <div class="card-body card-body-custom">
             <h3 class="athlete-name text-white">Carlos Rodríguez</h3>
             <p class="athlete-specialty">CLIENTE PREMIUM ZONAFIT</p>
-            
             <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">MES</div>
-                    <div class="stat-label">Menbresia</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number text-success">PAGO</div>
-                    <div class="stat-label">Estado</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">15</div>
-                    <div class="stat-label">Dias</div>
-                </div>
+              <div class="stat-item">
+                <div class="stat-number">MES</div>
+                <div class="stat-label">Menbresia</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number text-success">PAGO</div>
+                <div class="stat-label">Estado</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">15</div>
+                <div class="stat-label">Dias</div>
+              </div>
             </div>
-            
             <p class="text-muted mb-3" style="font-size: 13px; padding: 0 15px;">
                 Deportista premium enfocado en disciplina, rendimiento, constancia y bienestar físico integral.
             </p>
-            
-            <!-- <button class="contact-btn mb-3">
-                <i class="fas fa-envelope me-2"></i>Contactar
-            </button> -->
         </div>
-    </div>
-          </div>
-          
-        </div>
-        
-      </div>
-      <div class="modal-footer">
-        
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
+</div>
+
+
     <?php require_once 'componentes/scripts.php'; ?>
     <script src="<?= base_url('js/ventas.js') ?>"></script>
 </body>

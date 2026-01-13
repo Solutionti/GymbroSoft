@@ -42,10 +42,9 @@ precio -->
               </div>
                 <div class="card-body">
                   <ol>
-                    <li>Cardio rumba - lunes y jueves - 8:00 pm</li>
-                    <li>spinning - martes y miercoles - 8:00 pm</li>
-                    <li>Aerobicos - sabados - 8:00 pm</li>
-                    <li>Libre - domingos - 8:00 pm</li>
+                    <?php foreach($horario->getResult() as $horarios): ?>
+                      <li class="text-uppercase"><?= $horarios->nombre ?> - <?= $horarios->horarios ?></li>
+                   <?php endforeach; ?>
                   </ol>
                 </div>
             </div>
@@ -83,7 +82,7 @@ precio -->
           <input
             class="form-control"
             type="text"
-            id="usuario"
+            id="nombre_horario"
           >
         </div>
         <!--  -->
@@ -95,7 +94,7 @@ precio -->
           <input
             class="form-control"
             type="text"
-            id="usuario"
+            id="horarios_clase"
           >
         </div>
         <!--  -->
@@ -107,13 +106,13 @@ precio -->
           <input
             class="form-control"
             type="time"
-            id="usuario"
+            id="hora_clase"
           >
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" onclick="crearHorario()">Guardar</button>
       </div>
     </div>
   </div>
@@ -164,7 +163,7 @@ precio -->
               <input
                 class="form-control"
                 type="time"
-                id="usuario"
+                id="hora_calendario"
               >
             </div>
           </div>
@@ -179,9 +178,13 @@ precio -->
               </span>
              
               <select
-                class="form-control"
+                class="form-control text-uppercase"
+                id="evento_calendario"
               > 
                 <option value="">Seleccione el evento a programar</option>
+                <?php foreach($horario->getResult() as $horarios): ?>
+                  <option value="<?= $horarios->nombre; ?>"><?= $horarios->nombre .' ('.$horarios->horarios.')'; ?></option>
+                <?php endforeach; ?>
               </select>
             </div>
           </div>
@@ -192,14 +195,14 @@ precio -->
           <div class="col-md-12">
             <label for="">Descripcion</label>
             <div class="input-group mb-3">
-              <textarea class="form-control" rows="5"></textarea>
+              <textarea class="form-control" rows="5" id="descripcion_calendario"></textarea>
             </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" onclick="crearClaseCalendario()">Guardar</button>
       </div>
     </div>
   </div>

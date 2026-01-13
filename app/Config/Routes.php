@@ -30,12 +30,16 @@ $routes->get('/regular', 'Regular::index');
 
 // 
 $routes->get('/clases', 'Clases::index');
+$routes->post('clases/crearHorario', 'Clases::crearHorario');
+$routes->post('clases/crearClaseCalendario', 'Clases::crearClaseCalendario');
 
 // 
 $routes->get('/ventas', 'Ventas::index');
 $routes->get('/ventas/getproductoventa/(:num)', 'Ventas::getproductoventa/$1');
 $routes->get('/deportistas/getDeportista/(:num)', 'Ventas::getDeportistaId/$1');
 $routes->post('ventas/finalizarVenta', 'Ventas::finalizarVenta');
+$routes->post('ventas/crearDeportista', 'Ventas::crearDeportista');
+$routes->post('ventas/CrearVariableSesion', 'Ventas::CrearVariableSesion');
 
 // 
 $routes->get('/pagos', 'Pagos::index');
