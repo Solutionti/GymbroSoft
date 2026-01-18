@@ -26,15 +26,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let fechainicial = $("#fecha_inicial").val();
     const fecha = new Date(fechainicial);
-    
     fecha.setDate(fecha.getDate() + 30);
     $("#fecha_final").val(fecha.toISOString().split('T')[0]);
-    
     $("#validacioningreso").modal('show');
-    // document.getElementById("documento_validacion").focus();
-    // $("#documento_validacion").focus();
-
-    
 });
 
 $("#fecha_inicial").on("change", function () {
@@ -54,12 +48,20 @@ $("#codigo_producto").on("blur", function () {
     $.ajax({
       url: url,
       type: "GET",
-      dataType: "json",
+      // dataType: "json",
       success: function (response) {
-        if(response == "error") {
-
+        if(response === "error") {
+          $("body").overhang({
+            type: "error",
+            message: "Producto no se encontrado en la base de datos",
+          });
         }
         else {
+          $("body").overhang({
+            type: "success",
+            message: "Producto encontrado exitosamente",
+          });
+          response = JSON.parse(response);
           const nombre = response.nombre;
           const codigo = response.barras;
           const precio = response.precio_venta;
@@ -73,7 +75,6 @@ $("#codigo_producto").on("blur", function () {
           addItemCarrito(newItem);
           $("#codigo_producto").val("");
           $("#codigo_producto").focus();
-
         }
       }
     });
@@ -157,14 +158,67 @@ function sumaCantidad(e){
   }
 
   function removeItemCarrito(nombre){
-    
-    for(let i = 0; i < carrito.length; i++){
-      if(carrito[i].nombre.trim() === nombre.trim()){
-        carrito.splice(i, 1);
+
+    $("body").overhang({
+      type: "confirm",
+      yesMessage: "Sí",
+      noMessage: "No",
+      message: "¿Desea eliminar este producto de la venta?" ,
+      overlay: true,
+      callback: function (value) {
+       if (value) {
+          for(let i = 0; i < carrito.length; i++){
+           if(carrito[i].nombre.trim() === nombre.trim()){
+           carrito.splice(i, 1);
+          }
+       }
+        renderCarrito();
+        carritoTotal();
       }
-    }
-    renderCarrito();
-    carritoTotal();
+      else {
+
+     }
+  }
+ });
+  }
+
+  function asociarProductoModal(codigo) {
+    let url = baseurl + "ventas/getproductoventa/" + codigo;
+
+    $.ajax({
+      url: url,
+      type: "GET",
+      // dataType: "json",
+      success: function (response) {
+        if(response === "error") {
+          $("body").overhang({
+            type: "error",
+            message: "Producto no se encontrado en la base de datos",
+          });
+        }
+        else {
+          $("body").overhang({
+            type: "success",
+            message: "Producto encontrado exitosamente",
+          });
+          response = JSON.parse(response);
+          const nombre = response.nombre;
+          const codigo = response.barras;
+          const precio = response.precio_venta;
+
+          const newItem = {
+            nombre: nombre,
+            codigo: codigo,
+            precio: precio,
+            cantidad: 1
+          }
+          addItemCarrito(newItem);
+          $("#listaproductos").modal('hide');
+          $("#codigo_producto").val("");
+          $("#codigo_producto").focus();
+        }
+      }
+    });
   }
 
   $("#codigo_deportista").on("blur", function () {
@@ -173,11 +227,21 @@ function sumaCantidad(e){
     $.ajax({
       url: url,
       type: "GET",
-      dataType: "json",
       success: function (response) {
-        if(response == "error") {
+        if(response === "error") {
+          $("body").overhang({
+            type: "error",
+            message: "Deportista no se encontrado en la base de datos",
+          });
+          $("#creardeportista").modal('show');
+          $("#documento_deportista").val($("#codigo_deportista").val());
         }
         else {
+          response = JSON.parse(response);
+          $("body").overhang({
+            type: "success",
+            message: "Deportista encontrado exitosamente",
+          });
           $("#nombre_ventas").val(response.nombre);
           $("#apellido_ventas").val(response.apellido);
 
@@ -223,7 +287,6 @@ function sumaCantidad(e){
         if(response == "error") {
         }
         else {
-          console.log(response);
 
           const nombre = response.membresias[0].nombre;
           const codigo = response.membresias[0].codigo_membresia;
@@ -246,7 +309,10 @@ function sumaCantidad(e){
 
   function finalizarVenta() {
     if(carrito.length === 0) {
-      alert("El carrito está vacío. Agrega productos antes de finalizar la venta.");
+      $("body").overhang({
+        type: "error",
+        message: "No hay productos en el carrito de ventas",
+      });
       return;
     }
 
@@ -272,13 +338,21 @@ function sumaCantidad(e){
       },
 
       success: function (response) {
+        $("#crearventa").prop("disabled", true);
         if(response == "error") {
-          alert("Error al procesar la venta. Inténtalo de nuevo.");
+          $("body").overhang({
+            type: "error",
+            message: "Error al procesar la venta. Inténtalo de nuevo.",
+          });
+          $("#crearventa").prop("disabled", false);
         }
         else {
-          alert("Venta realizada con éxito.");
+          $("body").overhang({
+            type: "success",
+            message: "Venta realizada con éxito.",
+          });
           setTimeout(reloadPage, 3000);
-         
+          $("#crearventa").prop("disabled", false);
         }
       }
     });
@@ -307,10 +381,16 @@ function sumaCantidad(e){
 
       success: function (response) {
         if(response == "error") {
-          alert("Error al crear el deportista. Inténtalo de nuevo.");
+          $("body").overhang({
+            type: "error",
+            message: "Error al crear el deportista. Inténtalo de nuevo.",
+          });
         }
         else {
-          alert("Deportista creado con éxito.");
+          $("body").overhang({
+            type: "success",
+            message: "Deportista creado con éxito.",
+          });
           $("#creardeportista").modal('hide');
           $("#codigo_deportista").val(documento); 
           $("#nombre_ventas").val(nombre); 

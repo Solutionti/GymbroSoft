@@ -1,5 +1,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 <script src="<?= base_url('js/datatable/datatable.js') ?>"></script>
+<script src="<?= base_url('js/datatable/overhang.min.js') ?>"></script>
 <script src="https://coreui.io/demos/bootstrap/5.3/free/vendors/@coreui/coreui/js/coreui.bundle.min.js"></script>
 <script src="https://coreui.io/demos/bootstrap/5.3/free/vendors/simplebar/js/simplebar.min.js"></script>
 <script>

@@ -66,8 +66,8 @@ precio -->
                                 <td><?= $deportistas->fecha_final;?></td>
                                 <td>
                                   <?php
-                                    $fechaInicio = new DateTime($deportistas->fecha_inicio);
-                                    $fechaFinal  = new DateTime($deportistas->fecha_final);
+                                    $fechaInicio = new DateTime($deportistas->fecha_final);
+                                    $fechaFinal  = new DateTime(date("Y-m-d"));
 
                                     $diferencia = $fechaInicio->diff($fechaFinal);
                                     echo $diferencia->days;

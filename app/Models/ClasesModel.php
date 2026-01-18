@@ -30,7 +30,7 @@ class ClasesModel extends Model {
         "fechainicio" => $data["fechainicio"],
         "fechafin" => $data["fechafin"],
         "hora" => $data["hora"],
-        "estado" => $data["estado"],
+        "estado" => "Activo",
         "usuario" => session()->get('documento'),
         "color" => "green",
         "descripcion" => $data["descripcion"],
@@ -40,6 +40,20 @@ class ClasesModel extends Model {
     }
 
     public function getClasesHorarios() {
+      $clases = $this->db->table("clases")
+                         ->select('UPPER(nombre) as title, descripcion as descripcion, CONCAT(fechainicio," ",hora) as start, CONCAT(fechafin," ",hora) as end, color as color')
+                         ->get();
 
+      return $clases->getResult();
     }
+
+    public function getClasesInscripciones() {
+      $inscripciones = $this->db->table("clases")
+                         ->select('*')
+                         ->where('fechainicio >=', date('Y-m-d'))
+                         ->get();
+
+      return $inscripciones;
+    }
+
 }

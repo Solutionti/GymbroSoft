@@ -53,8 +53,6 @@ class Usuarios extends BaseController {
         "password" => $this->request->getPost('password'),
       ];
       $this->usuariosModel->actualizarUsuario($data);
-      echo "hola";
-      exit;
 
       return $this->response->setJSON([
         "status"  => "success",

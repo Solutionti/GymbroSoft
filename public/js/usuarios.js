@@ -34,7 +34,6 @@ function getUsuariosId(documento) {
             $("#telefono").val(response.usuarios[0].telefono);
             $("#correo").val(response.usuarios[0].email);
             $("#usuario").val(response.usuarios[0].usuario);
-
             $("#crear").attr("disabled", true);
             $("#actualizar").removeAttr("disabled");
         },
@@ -65,11 +64,17 @@ function crearUsuarios() {
         password: password,
     },
     success: function(response) {
-        alert("Membresía creada exitosamente");
-        location.reload();
+        $("body").overhang({
+          type: "success",
+          message: "Usuario creado exitosamente"
+        });
+        setTimeout(reloadPage, 3000);
     },
     error: function(xhr, status, error) {
-        alert("Error al crear la membresía: " + error);
+        $("body").overhang({
+          type: "error",
+          message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+        });
     }
   });
 
@@ -96,11 +101,17 @@ function editarUsuarios() {
         password: password,
     },
     success: function(response) {
-        alert("Membresía creada exitosamente");
-        location.reload();
+        $("body").overhang({
+          type: "success",
+          message: "Usuario actualizado exitosamente"
+        });
+        setTimeout(reloadPage, 3000);
     },
     error: function(xhr, status, error) {
-        alert("Error al crear la membresía: " + error);
+        $("body").overhang({
+          type: "error",
+          message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+        });
     }
   });
 

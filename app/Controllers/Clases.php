@@ -33,21 +33,26 @@ class Clases extends BaseController {
 
     public function crearClaseCalendario() {
       $data = [
-        "nombre" => $this->request->getPost('nombre'),
-        "fechainicio" => $this->request->getPost('fechainicio'),
-        "fechafin" => $this->request->getPost('fechafin'),
+        "nombre" => $this->request->getPost('evento'),
+        "fechainicio" => $this->request->getPost('fechainicial'),
+        "fechafin" => $this->request->getPost('fechafinal'),
         "hora" => $this->request->getPost('hora'),
-        "estado" => $this->request->getPost('estado'),
-        "color" => $this->request->getPost('color'),
         "descripcion" => $this->request->getPost('descripcion'),
       ];
       $this->clasesModel->CrearClase($data);
+     
 
       return $this->response->setJSON([
         "status"  => "success",
         "message" => "Se ha creado la clase correctamente"
       ]);
 
+    }
+
+    public function getClasesHorarios() {
+      $clases = $this->clasesModel->getClasesHorarios();
+
+      echo json_encode($clases);
     }
 
 }

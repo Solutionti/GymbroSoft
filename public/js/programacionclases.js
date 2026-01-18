@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
-  let respuesta = baseurl + "ventas/getdataCalendario";
+  let respuesta = baseurl + "clases/getClasesHorarios";
   var calendar = new FullCalendar.Calendar(calendarEl, {
-
       slotLabelFormat:{
              hour: '2-digit',
              minute: '2-digit',
@@ -36,9 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
          color: "green"
        },
        editable: false,
-    //    eventClick: function(info){
-    //     alert("holas");
-    //    }
+       eventClick: function(info){
+        //aca va el codigo para mostrar modal con info de la clase
+       },
        dateClick: function(info) {
         // console.log(info.dateStr);
         $("#programaciondeclases").modal("show");
@@ -66,12 +65,17 @@ function crearHorario() {
     dataType: "json",
     success: function (response) {
       if (response.success) {
-        alert("Horario creado con exito");
-        location.reload();
+         $("body").overhang({
+          type: "success",
+          message: "Horario creado exitosamente"
+        });  
       }
     },
     error: function (xhr, status, error) {
-      console.error("Error en la solicitud AJAX:", status, error);
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      }); 
     }
   });
 }
@@ -96,13 +100,22 @@ function crearClaseCalendario() {
     },
     dataType: "json",
     success: function (response) {
-      if (response.success) {
-        alert("Clase programada con exito");
-        location.reload();
-      }
+        $("body").overhang({
+          type: "success",
+          message: "Clase programada con exito"
+        });
+        setTimeout(reloadPage, 3000);
+
     },
     error: function (xhr, status, error) {
-      console.error("Error en la solicitud AJAX:", status, error);
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      }); 
     }
   });
+}
+
+function reloadPage() {
+  location.reload();
 }

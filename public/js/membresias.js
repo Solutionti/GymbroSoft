@@ -6,8 +6,8 @@ $(document).ready( function () {
     "language":{
     "processing": "Procesando",
     "search": "Buscar: ",
-    "lengthMenu": "Ver _MENU_ Membresias",
-    "info": "Mirando _START_ a _END_ de _TOTAL_ Membresias",
+    "lengthMenu": "Ver _MENU_ Planes",
+    "info": "Mirando _START_ a _END_ de _TOTAL_ Planes",
     "zeroRecords": "No encontraron resultados",
     "paginate": {
       "first":      "Primera",
@@ -60,11 +60,18 @@ function crearMembresia() {
         estado: estado
     },
     success: function(response) {
-        alert("Membresía creada exitosamente");
-        location.reload();
+
+        $("body").overhang({
+          type: "success",
+          message: "Membresía creada exitosamente"
+        });
+        setTimeout(reloadPage, 3000);
     },
     error: function(xhr, status, error) {
-        alert("Error al crear la membresía: " + error);
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      });
     }
   });
 }
@@ -88,12 +95,18 @@ function actualizarMembresia() {
             estado: estado
         },
       success: function(response) {
-          alert("Membresía actualizada exitosamente");
-            location.reload();
+            $("body").overhang({
+                type: "success",
+                message: "Membresía actualizada exitosamente"
+            });
+            setTimeout(reloadPage, 3000);
         },
         error: function(xhr, status, error) {
             alert("Error al actualizar la membresía: " + error);
         }
     });
+}
 
+function reloadPage() {
+  location.reload();
 }

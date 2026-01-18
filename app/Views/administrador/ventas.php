@@ -30,7 +30,7 @@ precio -->
                 <!-- aca va el contenido -->
                  <div class="row">
                   <div class="col-md-11">
-                    <label class="mb-2">Codigo Deportista (*)</label>
+                    <label class="mb-2">Codigo Deportista</label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -66,7 +66,7 @@ precio -->
                   </div>
                  </div>
                  <!--  -->
-                 <div class="row mt-2">
+                 <!-- <div class="row mt-2">
                   <div class="col-md-6">
                     <label class="mb-2">Nombres</label>
                     <input 
@@ -85,7 +85,7 @@ precio -->
                       readonly
                     >
                   </div>
-                 </div>
+                 </div> -->
                  <!--  -->
                  <div class="row mt-2">
                   <div class="col-md-6">
@@ -184,11 +184,20 @@ precio -->
                 class="btn btn-success btn-lg btn-block text-white"
                 type="button"
                 onclick="finalizarVenta()"
+                id="crearventa"
                 >
-                <!-- data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasRight" aria-controls="offcanvasRight" -->
-                <!-- data-coreui-toggle="modal" data-coreui-target="#validacioningreso" -->
                  Crear venta
               </button>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-5 offset-md-7">
+                <div class="form-check">
+                  <input class="form-check-input mx-2" type="checkbox" id="imprimirfactura">
+                  <label class="form-check-label" for="imprimirfactura">
+                    ¿Imprimir factura?
+                  </label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -361,8 +370,17 @@ precio -->
                 <td>$<?= number_format($productos->precio_venta, 0, ',', '.'); ?></td>
                 <td><?= $productos->stock; ?></td>
                 <td width="10%">
-                 <input type="radio" class="btn-check ml-4" name="options" id="option1" autocomplete="off">
-                 <label class="btn btn-outline-primary text-white btn-sm ml-4" for="option1">Seleccionar</label>
+                 <input
+                   type="radio"
+                   class="btn-check ml-4"
+                   name="options"
+                   id="<?= $productos->barras; ?>"
+                   onclick="asociarProductoModal('<?= $productos->barras; ?>')"
+                 >
+                 <label
+                   class="btn btn-outline-primary text-white btn-sm ml-4" for="<?= $productos->barras; ?>">
+                   Seleccionar
+                  </label>
                 </td>
               </tr>
               <?php endforeach; ?>

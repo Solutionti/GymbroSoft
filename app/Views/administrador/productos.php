@@ -64,7 +64,7 @@ precio -->
               <div class="col-md-3">
                 <div class="card">
                   <div class="card-body">
-                    <div class="fs-4 fw-semibold">89.9%</div>
+                    <div class="fs-4 fw-semibold"><?= number_format($totalentradas->getResult()[0]->total_entradas, 0, '', '.'); ?></div>
                       <div>Total de entradas</div>
                         <div class="progress progress-thin my-2">
                           <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -77,7 +77,7 @@ precio -->
                   <div class="col-md-3">
                    <div class="card">
                           <div class="card-body">
-                            <div class="fs-4 fw-semibold">89.9%</div>
+                            <div class="fs-4 fw-semibold"><?= number_format($totalsalidas->getResult()[0]->total_salidas, 0, '', '.'); ?></div>
                             <div>Total de salidas</div>
                             <div class="progress progress-thin my-2">
                               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -89,7 +89,7 @@ precio -->
                   <div class="col-md-3">
                     <div class="card">
                           <div class="card-body">
-                            <div class="fs-4 fw-semibold">89.9%</div>
+                            <div class="fs-4 fw-semibold"><?= number_format($totalventa->getResult()[0]->total_ventas, 0, '', '.'); ?></div>
                             <div>Total en stock venta</div>
                             <div class="progress progress-thin my-2">
                               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -101,7 +101,7 @@ precio -->
                   <div class="col-md-3">
                     <div class="card">
                           <div class="card-body">
-                            <div class="fs-4 fw-semibold">89.9%</div>
+                            <div class="fs-4 fw-semibold"><?= number_format($totalproveedor->getResult()[0]->total_proveedor, 0, '', '.'); ?></div>
                             <div>Total en stock proveedor</div>
                             <div class="progress progress-thin my-2">
                               <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -142,42 +142,65 @@ precio -->
                               </tr>
                             </thead>
                             <tbody>
+                              <?php foreach($productos->getResult() as $producto): ?>
                               <tr>
                                   <td class="text-center">
                                   <div class="avatar avatar-md">
                                   <img 
                                     class="avatar-img"
-                                    src="https://ui-avatars.com/api/?name=CREATINA EN POLVO=128&background=4f46e5&color=fff"
+                                    src="https://ui-avatars.com/api/?name=<?= $producto->nombre; ?>&size=128&background=4f46e5&color=fff"
                                     alt="user@email.com"
                                   >
                                     <span class="avatar-status bg-success"></span>
                                 </div>
                               </td>
                               <td>
-                                <div class="text-nowrap text-uppercase">CREATINA EN POLVO</div>
-                                <div class="small text-body-secondary text-nowrap"><span>1256848285</span> | PROTEINAS</div>
+                                <div class="text-nowrap text-uppercase"><?= $producto->nombre; ?></div>
+                                <div class="small text-body-secondary text-nowrap text-uppercase"><span><?= $producto->barras; ?></span> | <?= $producto->categoria; ?></div>
                               </td>
-                                <td>VTA00</td>
-                                <td>$15000</td>
-                                <td>$20000</td>
-                                <td class="text-uppercase" >01</td>
+                                <td><?= $producto->medida; ?></td>
+                                <td>$<?= number_format($producto->precio_proveedor, 0, ',', '.'); ?></td>
+                                <td>$<?= number_format($producto->precio_venta, 0, ',', '.'); ?></td>
+                                <td class="text-uppercase" ><?= $producto->stock; ?></td>
                                 <td>
                                   <span class="badge rounded-pill text-bg-success text-white text-uppercase">activo</span>
                                 </td>
                                 <td>
                                   <div class="dropdown">
-                                    <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v"></i>
+                                    <button
+                                      class="btn btn-transparent p-0"
+                                      type="button"
+                                      data-coreui-toggle="dropdown"
+                                      aria-haspopup="true"
+                                      aria-expanded="false"
+                                    >
+                                      <i class="fas fa-ellipsis-v"></i>
                                     </button>
                                     <div class="dropdown-menu dropdown-menu-end">
-                                      <a class="dropdown-item" href="#">Ver</a>
-                                      <a class="dropdown-item text-success" href="#">Ingreso</a>
-                                      <a class="dropdown-item text-danger" href="#">Salida</a>
-                                      <a class="dropdown-item text-primary" href="#">Historico</a>
+                                      <a
+                                        class="dropdown-item"
+                                        onclick="verProductos('<?= $producto->barras; ?>')"
+                                      >
+                                        Ver
+                                      </a>
+                                      <a 
+                                        class="dropdown-item text-success" 
+                                        onclick="getModalIngreso('<?= $producto->barras; ?>')"
+                                      >
+                                        Ingreso
+                                      </a>
+                                      <a
+                                        class="dropdown-item text-danger"
+                                        onclick="getModalSalida('<?= $producto->barras; ?>')"
+                                      >
+                                        Salida
+                                      </a>
+                                      <!-- <a class="dropdown-item text-primary" href="#">Historico</a> -->
                                     </div>
                                   </div>
                                 </td>
                               </tr>
+                              <?php endforeach; ?>
                             </tbody>
                           </table>
                         </div>
@@ -221,8 +244,7 @@ precio -->
                       <input 
                         type="text"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
-                        
+                        id="codigo_producto"
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -236,9 +258,9 @@ precio -->
                     <label class="mb-2">Nombre del Producto o Servicio (*)</label>
                     <div class="input-group">
                       <input 
-                        type="number"
-                        class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        type="text"
+                        class="form-control form-control-sm text-uppercase"
+                        id="nombres_producto"
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -257,9 +279,13 @@ precio -->
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        id="categoria_producto"
                       >
-                        <option value="">Seleccione una opcion</option> 
+                        <option value="">Seleccione una opcion</option>
+                        <option value="Proteinas">Proteinas</option>
+                        <option value="Bebidas">Bebidas</option>
+                        <option value="Snacks">Snacks</option>
+                        <option value="Otros">Otros</option>
                       </select>
                       <a
                         class="input-group-append input-group-text"
@@ -274,15 +300,15 @@ precio -->
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        id="unidad_medida_producto"
                       >
                         <option value="">Seleccione una opcion</option> 
-                        <option value="Unidad">Unidad</option>
-                        <option value="Caja">Caja</option>
-                        <option value="Kilogramo">Kilogramo</option>
-                        <option value="Gramo">Gramo</option>
-                        <option value="Litro">Litro</option>
-                        <option value="Mililitro">Mililitro</option>
+                        <option value="Unidad">Unidades</option>
+                        <option value="Caja">Cajas</option>
+                        <option value="Kilogramo">Kilogramos</option>
+                        <option value="Gramo">Gramos</option>
+                        <option value="Litro">Litros</option>
+                        <option value="Mililitro">Mililitros</option>
 
                       </select>
                       <a
@@ -294,13 +320,13 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-<label class="mb-2">Ganancia Maxima (*)</label>
+<label class="mb-2">Ganancia Maxima</label>
                     <div class="input-group">
                       <input 
                         type="number"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
-                        
+                        id="ganancia_maxima_producto"
+                        value="0"
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -319,8 +345,8 @@ precio -->
                       <input 
                         type="number"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
-                        
+                        id="precio_compra_producto"
+                        value="0"
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -336,8 +362,8 @@ precio -->
                       <input 
                         type="number"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
-                        
+                        id="precio_venta_producto"
+                        value="0"
                       >
                       <a
                         class="input-group-append input-group-text"
@@ -353,7 +379,7 @@ precio -->
                       <input 
                         type="number"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        id="stock_inicial_producto"
                         value="0"
                       >
                       <a
@@ -370,7 +396,7 @@ precio -->
                       <input 
                         type="number"
                         class="form-control form-control-sm"
-                        id="nombres_pedido"
+                        id="stock_minimo_producto"
                         value="0"
                       >
                       <a
@@ -384,8 +410,267 @@ precio -->
         </div>
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-danger text-white" onclick="actualizarProducto()">Actualizar</button>
+        <button type="button" class="btn btn-primary" onclick="crearProducto()" id="guardarprouducto">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INGRESO DE PRODUCTOS -->
+ <div class="modal fade" id="entradaproductos" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="creardeportistaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-uppercase" id="creardeportistaLabel">INGRESO DE PRODUCTOS A LA EMPRESA</h5>
+        <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+          <div class="col-md-3">
+            <label class="mb-2">Codigo (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="codigo_entrada"
+                        readonly
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-barcode text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-5">
+                    <label class="mb-2">Nombre del Producto o Servicio (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="text"
+                        class="form-control form-control-sm text-uppercase"
+                        id="nombre_entrada"
+                        readonly
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-book text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-2">
+                    <label class="mb-2">Stock</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="stock_entrada"
+                        readonly
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-book text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-2">
+                    <label class="mb-2">Cantidad</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="cantidad_entrada"
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-book text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row mt-3">
+          <div class="col-md-12">
+           <label class="mb-2">Motivo del ingreso</label>
+                    <div class="input-group">
+                      <select
+                        class="form-control form-control-sm"
+                        id="motivo_entrada"
+                      >
+                        <option value="">Seleccione una opcion</option>
+                        <option value="insumos">Compra de insumos para la empresa</option>
+                        <option value="regalo">Regalo empresarial</option>
+                        <option value="devolucion">Devolucion de productos</option>
+                      </select>
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-users text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row mt-3">
+          <div class="col-md-12">
+           <label class="mb-2">Observacion</label>
+                    <div class="input-group">
+                      <textarea 
+                        class="form-control form-control-sm"
+                        id="observacion_entrada"
+                        rows="4"
+                      ></textarea>
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-comment-dots text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" onclick="registrarEntrada()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- SALIDA DE PRODUCTOS  -->
+  <div class="modal fade" id="salidaproductos" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="creardeportistaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-uppercase" id="creardeportistaLabel">SALIDA DE PRODUCTOS DE LA EMPRESA</h5>
+        <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="row">
+          <div class="col-md-3">
+            <label class="mb-2">Codigo (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="codigo_salida"
+                        readonly
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-barcode text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-5">
+                    <label class="mb-2">Nombre del Producto o Servicio (*)</label>
+                    <div class="input-group">
+                      <input 
+                        type="text"
+                        class="form-control form-control-sm"
+                        id="nombre_salida"
+                        readonly
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-book text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-2">
+                    <label class="mb-2">Stock</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="stock_salida"
+                        readonly
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-book text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+          <div class="col-md-2">
+                    <label class="mb-2">Cantidad</label>
+                    <div class="input-group">
+                      <input 
+                        type="number"
+                        class="form-control form-control-sm"
+                        id="cantidad_salida"
+                      >
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-book text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row mt-3">
+          <div class="col-md-12">
+           <label class="mb-2">Motivo de la salida</label>
+                    <div class="input-group">
+                      <select
+                        class="form-control form-control-sm"
+                        id="motivo_salida"
+                      >
+                        <option value="">Seleccione una opcion</option>
+                        <option value="vencimiento">Vencimiento del producto</option>
+                        <option value="consumo">Consumo interno</option>
+                        <option value="prestamo">Prestamo a otras sedes</option>
+                        <option value="otros">Otros motivos</option>
+                      </select>
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-users text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+        </div>
+        <!--  -->
+        <div class="row mt-3">
+          <div class="col-md-12">
+           <label class="mb-2">Observacion</label>
+                    <div class="input-group">
+                      <textarea 
+                        class="form-control form-control-sm"
+                        id="observacion_salida"
+                        rows="4"
+                      ></textarea>
+                      <a
+                        class="input-group-append input-group-text"
+                        data-coreui-toggle="modal" data-coreui-target="#creardeportista"
+                      >
+                        <i id="changePassIcon" class="fas fa-comment-dots text-morado"></i>
+                      </a>
+                    </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary" onclick="registrarSalida()">Guardar</button>
       </div>
     </div>
   </div>

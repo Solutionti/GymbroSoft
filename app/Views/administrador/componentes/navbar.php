@@ -54,7 +54,7 @@
             <li class="nav-item"><a class="nav-link" href="notifications/toasts.html"><span class="nav-icon"><span class="nav-icon-bullet"></span></span> Toasts</a></li>
           </ul>
         </li> -->
-        <li class="nav-item"><a class="nav-link text-primary fw-semibold" href="https://coreui.io/product/bootstrap-dashboard-template/" target="_top">
+        <li class="nav-item"><a class="nav-link text-primary fw-semibold">
           <i class="fas fa-code-branch mx-4"></i> 1.0.0.0</a></li>
       </ul>
       <div class="sidebar-footer border-top d-none d-md-flex">
