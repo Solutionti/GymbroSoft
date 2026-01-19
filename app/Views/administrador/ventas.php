@@ -120,7 +120,7 @@ precio -->
                       onclick="asociarMembresia(<?=  $membresias->codigo_membresia; ?>)"
                       autocomplete="off"
                     >
-                      <label class="btn btn-outline-danger text-white text-capitalize" for="<?=  $membresias->nombre; ?>">
+                      <label class="btn btn-outline-danger text-white text-uppercase" for="<?=  $membresias->nombre; ?>">
                         <?=  $membresias->nombre; ?>
                       </label>
                     <?php endforeach; ?>

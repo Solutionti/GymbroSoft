@@ -91,13 +91,15 @@ class Ventas extends BaseController {
       $this->ventasModel->crearPagos($data3);
       
       //actualizar el dato del deportista
-      $data4 = [
-        "deportista" => $deportista,
-        "fecha_inicio" => $fecha_inicio,
-        "fecha_final" => $fecha_final,
-        "membresia" => "1"
-      ];
-      $this->ventasModel->actualizarDeportista($data4);
+      if(strlen($venta['codigo']) < 7) {
+        $data4 = [
+          "deportista" => $deportista,
+          "fecha_inicio" => $fecha_inicio,
+          "fecha_final" => $fecha_final,
+          "membresia" => $venta['codigo']
+        ];
+        $this->ventasModel->actualizarDeportista($data4);
+      }
     }
 
     public function crearDeportista() {
