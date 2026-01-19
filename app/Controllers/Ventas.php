@@ -125,6 +125,15 @@ class Ventas extends BaseController {
     
   }
 
+  public function actualizarDeportistaEstado() {
+    $deportista = $this->request->getPost('codigo');
+
+    $data = [
+      "deportista" => $deportista
+    ];
+    $this->ventasModel->actualizarDeportistaEstado($data);
+  }
+
 
 
 }

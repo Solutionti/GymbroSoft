@@ -25,8 +25,9 @@ class VentasModel extends Model {
 
   function getDeportistaId($codigo){
     // Consulta para obtener el deportista por su código
-    $deportista = $this->db->table("miembros")
-                    ->select("*")
+    $deportista = $this->db->table("miembros m")
+                    ->select("m.*, mb.nombre as membresias")
+                    ->join("membresias mb", "m.membresia = mb.codigo_membresia", "left")
                     ->where("documento", $codigo)
                     ->get();
 
@@ -135,6 +136,15 @@ class VentasModel extends Model {
     ];
     $this->db->table("miembros")
              ->insert($deportista);
+  }
+
+  public function actualizarDeportistaEstado($data) {
+    $deportista = [
+      "estado" => "Activo"
+    ];
+    $this->db->table("miembros")
+              ->where("documento", $data["deportista"])
+             ->update($deportista);
   }
 
 }

@@ -90,27 +90,27 @@ precio -->
                           <form>
                             
                             <div class="form-group mt-2">
-                                <label for="nombre">Nombres y Apellidos</label>
+                                <label for="nombre">Nombres y Apellidos <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="nombre" >
                             </div>
                             <div class="form-group mt-2">
-                                <label for="dias">Documento</label>
+                                <label for="dias">Documento <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control" id="documento" >
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Telefono</label>
+                                <label for="precio">Telefono <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control" id="telefono">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Correo</label>
+                                <label for="precio">Correo <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="correo">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Usuario</label>
+                                <label for="precio">Usuario <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="usuario">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Contraseña</label>
+                                <label for="precio">Contraseña <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="password">
                             </div>
                             <button type="button" class="btn btn-primary mt-3" id="crear" onclick="crearUsuarios()">Aceptar</button>

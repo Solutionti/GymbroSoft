@@ -106,7 +106,7 @@ precio -->
                               </td>
                               <td>
                                 <div class="text-nowrap text-uppercase"><?= $pagos->nombre .' '. $pagos->apellido; ?></div>
-                                <div class="small text-body-secondary text-nowrap"><span><?= $pagos->documento; ?></span> | Registro: Junio 01, 2025</div>
+                                <div class="small text-body-secondary text-nowrap"><span><?= $pagos->documento; ?></span> | Fecha: <?= $pagos->fecha; ?></div>
                               </td>
                                 <td>VTA00<?= $pagos->codigo_membresia; ?></td>
                                 <td><?= $pagos->fecha_final; ?></td>

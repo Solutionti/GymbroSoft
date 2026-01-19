@@ -70,23 +70,23 @@ precio -->
                         <div class="card-body">
                           <form>
                             <div class="form-group">
-                                <label>Codigo</label>
+                                <label>Codigo <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="codigo" readonly>
                             </div>
                             <div class="form-group mt-2">
-                                <label>Nombre</label>
+                                <label>Nombre <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="nombre" >
                             </div>
                             <div class="form-group mt-2">
-                                <label for="dias">Días</label>
+                                <label for="dias">Días <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control" id="dias" >
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Precio</label>
+                                <label for="precio">Precio <span class="text-danger">*</span> </label>
                                 <input type="number" class="form-control" id="precio">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Estado</label>
+                                <label for="precio">Estado <span class="text-danger">*</span></label>
                                 <select class="form-control" id="estado">
                                   <option value="Activo">Activo</option>
                                   <option value="Inactivo">Inactivo</option>

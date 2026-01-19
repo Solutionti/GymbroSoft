@@ -50,30 +50,40 @@ function crearMembresia() {
       precio = $("#precio").val(),
       estado = $("#estado").val();
 
-  $.ajax({
-    url: url,
-    type: "POST",
-    data: {
-        nombre: nombre,
-        dias: dias,
-        precio: precio,
-        estado: estado
-    },
-    success: function(response) {
-
-        $("body").overhang({
-          type: "success",
-          message: "Membresía creada exitosamente"
-        });
-        setTimeout(reloadPage, 3000);
-    },
-    error: function(xhr, status, error) {
-      $("body").overhang({
+  if(nombre == "" || dias == "" || precio == "" || estado == "") {
+    $("body").overhang({
         type: "error",
-        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
-      });
-    }
-  });
+        message: "Complete todos los campos requeridos",
+    });
+  }
+  else {
+
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: {
+          nombre: nombre,
+          dias: dias,
+          precio: precio,
+          estado: estado
+      },
+      success: function(response) {
+  
+          $("body").overhang({
+            type: "success",
+            message: "Membresía creada exitosamente"
+          });
+          setTimeout(reloadPage, 3000);
+      },
+      error: function(xhr, status, error) {
+        $("body").overhang({
+          type: "error",
+          message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+        });
+      }
+    });
+  }
+
 }
 
 function actualizarMembresia() {

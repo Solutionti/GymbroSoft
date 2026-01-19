@@ -81,12 +81,12 @@ $("#codigo_producto").on("blur", function () {
 });
 
 function addItemCarrito(newItem){
-    // var  inputelemento = tbody.getElementsByClassName('cantidad_products');
+    var  inputelemento = document.getElementsByClassName('cantidad_products');
     for(let i= 0; i < carrito.length; i++ ){
         if(carrito[i].nombre.trim() === newItem.nombre.trim()){
           carrito[i].cantidad ++;
-          // const inputValue = inputelemento[i];
-          // inputValue.value ++;
+          const inputValue = inputelemento[i];
+          inputValue.value ++;
           carritoTotal();
           return null;
         }
@@ -112,7 +112,7 @@ function renderCarrito(){
   </div>
   <div class="col-md-2">
     <span>
-      <input type="number" class="form-control form-control-sm" style="width:60px; font-size:12px; text-align:center;" value="1" min="1" />
+      <input type="number" class="form-control form-control-sm cantidad_products" style="width:60px; font-size:12px; text-align:center;" value="1" min="1" />
     </span>
   </div>
 </div>
@@ -122,6 +122,8 @@ function renderCarrito(){
         producto.querySelector(".delete").addEventListener("click", () => {
             removeItemCarrito(item.nombre);
         });
+
+        producto.querySelector(".cantidad_products").addEventListener("keyup", sumaCantidad);
 
         contenedor.appendChild(producto);
     });
@@ -249,11 +251,23 @@ function sumaCantidad(e){
           if($validacion == true) {
             if(response.membresia == 0) {
               membresiaact = "NP";
-              dias = 0;
+              diferenciaDias = 0;
+              color = "text-danger";
             }
             else {
               membresiaact = "PAGO";
-              dias = 15;
+              color = "text-success";
+              const fechaInicio = new Date(response.fecha_final);
+              const fechaFinal = new Date();
+              // fechaInicio.setHours(0, 0, 0, 0);
+              // fechaFinal.setHours(0, 0, 0, 0);
+              const diferenciaMs = Math.abs(fechaFinal - fechaInicio);
+              diferenciaDias = Math.ceil(diferenciaMs / (1000 * 60 * 60 * 24) + 1 );
+
+              if(diferenciaDias == 1 || diferenciaDias == 0) {
+                membresiaact = "VENCE";
+                color = "text-danger";
+              }
 
             }
             $("#offcanvasRight").offcanvas('show');
@@ -262,13 +276,36 @@ function sumaCantidad(e){
             `
             <div class="card athlete-card"><div class="card-header-custom">
             <div class="athlete-photo"><i class="fas fa-user"></i></div></div>
-            <div class="card-body card-body-custom"><h3 class="athlete-name text-white text-capitalize">${response.nombre + " " + response.apellido}</h3><p class="athlete-specialty">CLIENTE PREMIUM ZONAFIT</p>
-            <div class="stats-container"><div class="stat-item"><div class="stat-number">${response.membresia}</div><div class="stat-label">Menbresia</div></div>
-            <div class="stat-item"><div class="stat-number text-success">${membresiaact}</div><div class="stat-label">Estado</div></div>
-            <div class="stat-item"><div class="stat-number">${dias}</div><div class="stat-label">Dias</div></div></div>
+            <div class="card-body card-body-custom"><h3 class="athlete-name text-white text-capitalize">${response.nombre + " " + response.apellido}</h3><p class="athlete-specialty text-uppercase">CLIENTE ${response.membresias}</p>
+            <div class="stats-container"><div class="stat-item"><div class="stat-number ${color}">${membresiaact}</div><div class="stat-label">Estado</div></div>
+            <div class="stat-item"><div class="stat-number">${diferenciaDias}</div><div class="stat-label">Dias</div></div></div>
             <p class="text-muted mb-3" style="font-size: 13px; padding: 0 15px;">Deportista premium enfocado en disciplina, rendimiento, constancia y bienestar físico integral.</p>
             </div></div>
             `;
+
+     $("body").overhang({
+      type: "confirm",
+      yesMessage: "Sí",
+      noMessage: "No",
+      message: "¿Desea darle ingreso al deportista?" ,
+      overlay: true,
+      callback: function (value) {
+       if (value) {
+         var url = baseurl + 'ventas/actualizarDeportistaEstado';
+          $.ajax({
+        url: url,
+        method: 'POST',
+        data: {codigo: codigo},
+        success: function(response) {
+          setTimeout(reloadPage, 2000);
+        }
+      });
+     }
+       else {
+
+       }
+     }   
+ });
           }
           else {
           }
@@ -351,8 +388,8 @@ function sumaCantidad(e){
             type: "success",
             message: "Venta realizada con éxito.",
           });
-          setTimeout(reloadPage, 3000);
           $("#crearventa").prop("disabled", false);
+          setTimeout(reloadPage, 3000);
         }
       }
     });

@@ -48,6 +48,7 @@ $routes->get('/deportistas/getDeportista/(:num)', 'Ventas::getDeportistaId/$1');
 $routes->post('ventas/finalizarVenta', 'Ventas::finalizarVenta');
 $routes->post('ventas/crearDeportista', 'Ventas::crearDeportista');
 $routes->post('ventas/CrearVariableSesion', 'Ventas::CrearVariableSesion');
+$routes->post('ventas/actualizarDeportistaEstado', 'Ventas::actualizarDeportistaEstado');
 // 
 $routes->get('/pagos', 'Pagos::index');
 // 

@@ -51,33 +51,41 @@ function crearUsuarios() {
       correo = $("#correo").val(),
       usuario = $("#usuario").val(),
       password = $("#password").val();
+  
+  if(nombre == "" || documento == "" || telefono == "" || correo == "" || usuario == "" || password == "") {
+    $("body").overhang({
+        type: "error",
+        message: "Complete todos los campos requeridos",
+    });
+  }
+  else {
 
-      $.ajax({
-    url: url,
-    type: "POST",
-    data: {
-        nombre: nombre,
-        documento: documento,
-        telefono: telefono,
-        correo: correo,
-        usuario: usuario,
-        password: password,
-    },
-    success: function(response) {
-        $("body").overhang({
-          type: "success",
-          message: "Usuario creado exitosamente"
-        });
-        setTimeout(reloadPage, 3000);
-    },
-    error: function(xhr, status, error) {
-        $("body").overhang({
-          type: "error",
-          message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
-        });
-    }
-  });
-
+    $.ajax({
+      url: url,
+      type: "POST",
+      data: {
+          nombre: nombre,
+          documento: documento,
+          telefono: telefono,
+          correo: correo,
+          usuario: usuario,
+          password: password,
+      },
+      success: function(response) {
+          $("body").overhang({
+            type: "success",
+            message: "Usuario creado exitosamente"
+          });
+          setTimeout(reloadPage, 3000);
+      },
+      error: function(xhr, status, error) {
+          $("body").overhang({
+            type: "error",
+            message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+          });
+      }
+    });
+  }
 }
 
 function editarUsuarios() {

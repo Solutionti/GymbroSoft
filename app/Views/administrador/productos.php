@@ -239,7 +239,7 @@ precio -->
         <br>
         <div class="row">
           <div class="col-md-4">
-            <label class="mb-2">Codigo (*)</label>
+            <label class="mb-2">Codigo <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -255,7 +255,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-8">
-                    <label class="mb-2">Nombre del Producto o Servicio (*)</label>
+                    <label class="mb-2">Nombre del Producto o Servicio <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -275,7 +275,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-4">
-           <label class="mb-2">Categoria (*)</label>
+           <label class="mb-2">Categoria <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
@@ -296,7 +296,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-<label class="mb-2">Unidad Medida (*)</label>
+<label class="mb-2">Unidad Medida <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
@@ -320,7 +320,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-<label class="mb-2">Ganancia Maxima</label>
+<label class="mb-2">Ganancia Maxima </label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -340,7 +340,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-4">
-           <label class="mb-2">Precio Compra (*)</label>
+           <label class="mb-2">Precio Compra  <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -357,7 +357,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-<label class="mb-2">Precio Venta (*)</label>
+<label class="mb-2">Precio Venta  <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -374,7 +374,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-<label class="mb-2">Stock Inicial (*)</label>
+<label class="mb-2">Stock Inicial  <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -391,7 +391,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-<label class="mb-2">Stock Minimo (*)</label>
+<label class="mb-2">Stock Minimo <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -429,7 +429,7 @@ precio -->
         
         <div class="row">
           <div class="col-md-3">
-            <label class="mb-2">Codigo (*)</label>
+            <label class="mb-2">Codigo <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -446,13 +446,14 @@ precio -->
                     </div>
           </div>
           <div class="col-md-5">
-                    <label class="mb-2">Nombre del Producto o Servicio (*)</label>
+                    <label class="mb-2">Nombre del Producto o Servicio</label>
                     <div class="input-group">
                       <input 
                         type="text"
                         class="form-control form-control-sm text-uppercase"
                         id="nombre_entrada"
                         readonly
+                      >
                       <a
                         class="input-group-append input-group-text"
                         data-coreui-toggle="modal" data-coreui-target="#creardeportista"
@@ -462,7 +463,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-                    <label class="mb-2">Stock</label>
+                    <label class="mb-2">Stock <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -479,7 +480,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-                    <label class="mb-2">Cantidad</label>
+                    <label class="mb-2">Cantidad <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -498,7 +499,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-12">
-           <label class="mb-2">Motivo del ingreso</label>
+           <label class="mb-2">Motivo del ingreso <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
@@ -558,7 +559,7 @@ precio -->
         
         <div class="row">
           <div class="col-md-3">
-            <label class="mb-2">Codigo (*)</label>
+            <label class="mb-2">Codigo  <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -575,13 +576,14 @@ precio -->
                     </div>
           </div>
           <div class="col-md-5">
-                    <label class="mb-2">Nombre del Producto o Servicio (*)</label>
+                    <label class="mb-2">Nombre del Producto o Servicio </label>
                     <div class="input-group">
                       <input 
                         type="text"
                         class="form-control form-control-sm"
                         id="nombre_salida"
                         readonly
+                      >
                       <a
                         class="input-group-append input-group-text"
                         data-coreui-toggle="modal" data-coreui-target="#creardeportista"
@@ -591,7 +593,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-                    <label class="mb-2">Stock</label>
+                    <label class="mb-2">Stock <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -608,7 +610,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-                    <label class="mb-2">Cantidad</label>
+                    <label class="mb-2">Cantidad <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -627,7 +629,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-12">
-           <label class="mb-2">Motivo de la salida</label>
+           <label class="mb-2">Motivo de la salida <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
@@ -651,7 +653,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-12">
-           <label class="mb-2">Observacion</label>
+           <label class="mb-2">Observacion <span class="text-danger">*</span></label>
                     <div class="input-group">
                       <textarea 
                         class="form-control form-control-sm"

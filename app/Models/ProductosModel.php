@@ -139,6 +139,7 @@ class ProductosModel extends Model {
    public function countEntradas() {
     $entradas = $this->db->table('kardex')
                       ->select('COUNT(*) AS total_entradas', false)
+                      ->where('tp_documento', 'ENTDA')
                       ->get();
 
      return $entradas;
@@ -147,6 +148,7 @@ class ProductosModel extends Model {
    public function countSalidas() {
     $salidas = $this->db->table('kardex')
                       ->select('COUNT(*) AS total_salidas', false)
+                      ->where('tp_documento', 'SALDA')
                       ->get();
 
      return $salidas;
