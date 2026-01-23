@@ -56,4 +56,17 @@ class ClasesModel extends Model {
       return $inscripciones;
     }
 
+    public function crearInscripcion( $data) {
+      $inscripcion = [
+        "documento" => $data["documento"],
+        "nombres" => $data["nombres"],
+        "apellidos" => $data["apellidos"],
+        "codigo_clase" => $data["clase_codigo"],
+        "estado" => "Activo",
+      ];
+      $this->db->table("inscripciones")
+               ->insert($inscripcion);
+
+    }
+
 }

@@ -31,6 +31,10 @@ class Home extends BaseController {
       return view('administrador/inscripcion', $data);
     }
 
+    public function respuestaInscripcion() {
+      return view('administrador/inscripcionrespuesta');
+    }
+
     
     
 }

@@ -32,28 +32,28 @@
     <div class="row mt-3">
       <div class="col-md-12">
         <label class="mb-2">Documento <span class="color-naranja">*</span></label>
-        <input type="number" class="form-control">
+        <input type="number" class="form-control" id="documento">
       </div>
     </div>
 
     <div class="row mt-3">
       <div class="col-md-12">
         <label class="mb-2">Nombres <span class="color-naranja">*</span></label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" id="nombres">
       </div>
     </div>
 
     <div class="row mt-3">
       <div class="col-md-12">
         <label class="mb-2">Apellidos <span class="color-naranja">*</span></label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" id="apellidos">
       </div>
     </div>
 
     <div class="row mt-3">
       <div class="col-md-12">
         <label class="mb-2">Clase a participar <span class="color-naranja">*</span></label>
-        <select name="" id="" class="form-control text-uppercase">
+        <select name="" id="clase" class="form-control text-uppercase">
           <option value="">Seleccione una clase a participar</option>
           <?php foreach($clases->getResult() as $clase): ?>
             <option value="<?= $clase->codigo_clase ?>"><?= $clase->nombre ?> -  <?= $clase->fechainicio ?>  - Hora: <?= $clase->hora ?></option>
@@ -61,12 +61,12 @@
         </select>
       </div>
     </div>
-     <button class="btn naraja-background mt-4">Inscribirse</button>
+     <button class="btn naraja-background mt-4" onclick="inscribirse()">Inscribirse</button>
     <br>
     <br>
     <?php require_once 'componentes/footer.php'; ?>
   </div>
   <?php require_once 'componentes/scripts.php'; ?>
-    <script src="<?= base_url('js/miembros.js') ?>"></script>
+    <script src="<?= base_url('js/inscripcion.js') ?>"></script>
 </body>
 </html>

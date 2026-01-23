@@ -61,3 +61,5 @@ $routes->post('productos/actualizar', 'Productos::actualizarProductos');
 });
 //
 $routes->get('/inscripciones', 'Home::inscripciones');
+$routes->post('clases/crearInscripciones', 'Clases::crearInscripciones');
+$routes->get('/respuestaInscripcion', 'Home::respuestaInscripcion');

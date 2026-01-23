@@ -55,4 +55,21 @@ class Clases extends BaseController {
       echo json_encode($clases);
     }
 
+    public function crearInscripciones() {
+      $data = [
+        "documento" => $this->request->getPost('documento'),
+        "nombres" => $this->request->getPost('nombres'),
+        "apellidos" => $this->request->getPost('apellidos'),
+        "clase_codigo" => $this->request->getPost('clase_codigo'),
+      ];
+      $this->clasesModel->crearInscripcion($data);
+      echo "hola";
+      exit;
+
+      return $this->response->setJSON([
+        "status"  => "success",
+        "message" => "Se ha inscrito a la clase correctamente"
+      ]);
+    }
+
 }
