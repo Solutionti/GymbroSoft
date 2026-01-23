@@ -92,7 +92,7 @@
                       Este software de gimnasio optimiza entrenamientos, organiza rutinas, 
                       analiza avances y motiva al usuario a mejorar cada dia. 
                     </p>
-                    <button class="btn btn-lg btn-outline-light mt-3" type="button">Regístrate ahora!</button>
+                    <button class="btn btn-lg btn-outline-light mt-3" type="button">Quiero el Sistema!</button>
                   </div>
                 </div>
               </div>
