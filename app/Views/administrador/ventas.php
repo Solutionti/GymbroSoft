@@ -107,7 +107,7 @@ precio -->
                     >
                   </div>
                   <div class="col-md-1 mt-2">
-                    <i class="fab fa-cc-mastercard fa-2x mt-4 text-success"></i>
+                    <i class="fab fa-cc-mastercard fa-2x mt-4 text-danger"></i>
                   </div>
                  </div>
                  <div class="row mt-3">

@@ -1,10 +1,10 @@
-<footer class="footer px-4">
+<footer class="footer px-4 text-white">
   <div>
-    <a href="https://coreui.io">Todos los derechos reservados </a>
-    <a href="https://coreui.io/product/free-bootstrap-admin-template/">GymbroSoft</a>
+    <a ef="">Todos los derechos reservados </a>
+    <a >GymbroSoft</a>
     © 2026
   </div>
   <div class="ms-auto">Desarrollado por&nbsp;
-    <a href="https://coreui.io/bootstrap/docs/">GoFuture</a>
+    <a >GoFuture</a>
   </div>
 </footer>
