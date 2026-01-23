@@ -14,6 +14,7 @@ precio -->
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>GymbroSoft - Usuarios</title>
     <?php require_once 'componentes/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('css/estilo.css') ?>">
   </head>
   <body>
       <?php require_once 'componentes/navbar.php'; ?>
@@ -29,14 +30,14 @@ precio -->
                           <table class="table table-striped table-hover" id="tabla-usuarios">
                             <thead>
                               <tr> 
-                                <th class="text-uppercase bg-danger"></th>
-                                <th class="text-uppercase bg-danger"></th>
-                                <th class="text-uppercase bg-danger">Nombre</th>
-                                <th class="text-uppercase bg-danger">Codigo</th>
-                                <th class="text-uppercase bg-danger">Telefono</th>
-                                <th class="text-uppercase bg-danger">Rol</th>
-                                <th class="text-uppercase bg-danger">Estado</th>
-                                <th class="text-uppercase bg-danger"></th>
+                                <th class="text-uppercase naraja-background"></th>
+                                <th class="text-uppercase naraja-background"></th>
+                                <th class="text-uppercase naraja-background">Nombre</th>
+                                <th class="text-uppercase naraja-background">Codigo</th>
+                                <th class="text-uppercase naraja-background">Telefono</th>
+                                <th class="text-uppercase naraja-background">Rol</th>
+                                <th class="text-uppercase naraja-background">Estado</th>
+                                <th class="text-uppercase naraja-background"></th>
                               </tr>
                             </thead>
                             <tbody>
@@ -47,7 +48,7 @@ precio -->
                                 <div class="avatar avatar-md">
                                   <img 
                                     class="avatar-img"
-                                    src="https://ui-avatars.com/api/?name=<?= $usuarios->nombre ?>&size=128&background=4f46e5&color=fff"
+                                    src="https://ui-avatars.com/api/?name=<?= $usuarios->nombre ?>&size=128&background=C76E00&color=fff"
                                     alt="user@email.com"
                                   >
                                     <span class="avatar-status bg-success"></span>
@@ -90,31 +91,31 @@ precio -->
                           <form>
                             
                             <div class="form-group mt-2">
-                                <label for="nombre">Nombres y Apellidos <span class="text-danger">*</span></label>
+                                <label for="nombre">Nombres y Apellidos <span class="color-naranja">*</span></label>
                                 <input type="text" class="form-control" id="nombre" >
                             </div>
                             <div class="form-group mt-2">
-                                <label for="dias">Documento <span class="text-danger">*</span></label>
+                                <label for="dias">Documento <span class="color-naranja">*</span></label>
                                 <input type="number" class="form-control" id="documento" >
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Telefono <span class="text-danger">*</span></label>
+                                <label for="precio">Telefono <span class="color-naranja">*</span></label>
                                 <input type="number" class="form-control" id="telefono">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Correo <span class="text-danger">*</span></label>
+                                <label for="precio">Correo <span class="color-naranja">*</span></label>
                                 <input type="text" class="form-control" id="correo">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Usuario <span class="text-danger">*</span></label>
+                                <label for="precio">Usuario <span class="color-naranja">*</span></label>
                                 <input type="text" class="form-control" id="usuario">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Contraseña <span class="text-danger">*</span></label>
+                                <label for="precio">Contraseña <span class="color-naranja">*</span></label>
                                 <input type="text" class="form-control" id="password">
                             </div>
-                            <button type="button" class="btn btn-primary mt-3" id="crear" onclick="crearUsuarios()">Aceptar</button>
-                            <button type="button" class="btn btn-success mt-3 mx-2 text-white" id="actualizar" disabled onclick="editarUsuarios()">Actualizar</button>
+                            <button type="button" class="btn naraja-background mt-3" id="crear" onclick="crearUsuarios()">Aceptar</button>
+                            <button type="button" class="btn btn-danger mt-3 mx-2 text-white" id="actualizar" disabled onclick="editarUsuarios()">Actualizar</button>
                           </form>
                         </div>
                       </div>

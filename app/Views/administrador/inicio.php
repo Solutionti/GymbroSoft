@@ -155,7 +155,7 @@
                                 <div class="avatar avatar-md">
                                   <img 
                                     class="avatar-img"
-                                    src="https://ui-avatars.com/api/?name=<?= $activos->nombre .'+'. $activos->apellido;?>&size=128&background=4f46e5&color=fff"
+                                    src="https://ui-avatars.com/api/?name=<?= $activos->nombre .'+'. $activos->apellido;?>&size=128&background=C76E00&color=fff"
                                     alt="user@email.com"
                                   >
                                     <?php if($activos->estado == "Activo") { ?>

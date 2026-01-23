@@ -14,6 +14,7 @@ precio -->
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>GymbroSoft - Programacion de clases</title>
     <?php require_once 'componentes/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('css/estilo.css') ?>">
   </head>
   <body>
       <?php require_once 'componentes/navbar.php'; ?>
@@ -74,7 +75,7 @@ precio -->
         <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <label for="">Nombre</label>
+        <label for="">Nombre <span class="color-naranja"> *</span></label>
         <div class="input-group mb-3">
           <span class="input-group-text">
             <i class="fas fa-dumbbell"></i>
@@ -86,7 +87,7 @@ precio -->
           >
         </div>
         <!--  -->
-        <label for="">Horarios</label>
+        <label for="">Horarios <span class="color-naranja"> *</span></label>
         <div class="input-group mb-3">
           <span class="input-group-text">
             <i class="fas fa-calendar"></i>
@@ -98,7 +99,7 @@ precio -->
           >
         </div>
         <!--  -->
-        <label for="">Hora</label>
+        <label for="">Hora <span class="color-naranja"> *</span></label>
         <div class="input-group mb-3">
           <span class="input-group-text">
             <i class="fas fa-clock"></i>
@@ -111,8 +112,8 @@ precio -->
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="crearHorario()">Guardar</button>
+        <button type="button" class="btn btn-danger text-white" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn naraja-background" onclick="crearHorario()">Guardar</button>
       </div>
     </div>
   </div>
@@ -129,7 +130,7 @@ precio -->
       <div class="modal-body">
         <div class="row">
           <div class="col-md-5">
-            <label for="">Fecha inicial</label>
+            <label for="">Fecha inicial <span class="color-naranja"> *</span></label>
             <div class="input-group mb-3">
               <span class="input-group-text">
                 <i class="fas fa-calendar"></i>
@@ -142,7 +143,7 @@ precio -->
             </div>
           </div>
           <div class="col-md-4">
-          <label for="">Fecha Final</label>
+          <label for="">Fecha Final <span class="color-naranja"> *</span></label>
             <div class="input-group mb-3">
               <span class="input-group-text">
                 <i class="fas fa-calendar"></i>
@@ -155,7 +156,7 @@ precio -->
             </div>
           </div>
           <div class="col-md-3">
-            <label for="">Hora</label>
+            <label for="">Hora <span class="color-naranja"> *</span></label>
             <div class="input-group mb-3">
               <span class="input-group-text">
                 <i class="fas fa-clock"></i>
@@ -171,7 +172,7 @@ precio -->
         <!--  -->
         <div class="row">
           <div class="col-md-12">
-            <label for="">Evento</label>
+            <label for="">Evento <span class="color-naranja"> *</span></label>
             <div class="input-group mb-3">
               <span class="input-group-text">
                 <i class="fas fa-calendar"></i>
@@ -201,8 +202,8 @@ precio -->
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="crearClaseCalendario()">Guardar</button>
+        <button type="button" class="btn btn-danger text-white" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn naraja-background" onclick="crearClaseCalendario()">Guardar</button>
       </div>
     </div>
   </div>

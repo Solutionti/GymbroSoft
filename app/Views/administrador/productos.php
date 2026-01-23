@@ -14,46 +14,8 @@ precio -->
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>GymbroSoft - Productos</title>
     <?php require_once 'componentes/head.php'; ?>
-    <style>
-      .avatar-container {
-  position: relative;
-  width: 90px;
-  height: 90px;
-  margin: auto;
-}
-
-.avatar-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #ddd;
-}
-
-/* Overlay */
-.avatar-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 35%;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
-  cursor: pointer;
-  opacity: 0;
-  border-bottom-left-radius: 50%;
-  border-bottom-right-radius: 50%;
-  transition: opacity 0.3s;
-}
-
-.avatar-container:hover .avatar-overlay {
-  opacity: 1;
-}
-    </style>
+    <link rel="stylesheet" href="<?= base_url('css/estilo.css') ?>">
+    
   </head>
   <body>
       <?php require_once 'componentes/navbar.php'; ?>
@@ -118,7 +80,7 @@ precio -->
             <div class="card-header ">
               Inventario de productos
               <button
-                class="btn btn-primary float-end btn-sm btn-rounded"
+                class="btn naraja-background float-end btn-sm btn-rounded"
                 data-coreui-toggle="modal"
                 data-coreui-target="#crearproducto"
               >
@@ -131,14 +93,14 @@ precio -->
                           <table class="table table-striped table-hover" id="tabla-productos">
                             <thead>
                               <tr> 
-                                <th class="text-uppercase bg-danger"></th>
-                                <th class="text-uppercase bg-danger">NOMBRE PRODUCTO</th>
-                                <th class="text-uppercase bg-danger">MEDIDA</th>
-                                <th class="text-uppercase bg-danger">PRECIO COMPRA</th>
-                                <th class="text-uppercase bg-danger">PRECIO VENTA</th>
-                                <th class="text-uppercase bg-danger">STOCK</th>
-                                <th class="text-uppercase bg-danger">Estado</th>
-                                <th class="text-uppercase bg-danger"></th>
+                                <th class="text-uppercase naraja-background"></th>
+                                <th class="text-uppercase naraja-background">NOMBRE PRODUCTO</th>
+                                <th class="text-uppercase naraja-background">MEDIDA</th>
+                                <th class="text-uppercase naraja-background">PRECIO COMPRA</th>
+                                <th class="text-uppercase naraja-background">PRECIO VENTA</th>
+                                <th class="text-uppercase naraja-background">STOCK</th>
+                                <th class="text-uppercase naraja-background">Estado</th>
+                                <th class="text-uppercase naraja-background"></th>
                               </tr>
                             </thead>
                             <tbody>
@@ -148,7 +110,7 @@ precio -->
                                   <div class="avatar avatar-md">
                                   <img 
                                     class="avatar-img"
-                                    src="https://ui-avatars.com/api/?name=<?= $producto->nombre; ?>&size=128&background=4f46e5&color=fff"
+                                    src="https://ui-avatars.com/api/?name=<?= $producto->nombre; ?>&size=128&background=C76E00&color=fff"
                                     alt="user@email.com"
                                   >
                                     <span class="avatar-status bg-success"></span>
@@ -239,7 +201,7 @@ precio -->
         <br>
         <div class="row">
           <div class="col-md-4">
-            <label class="mb-2">Codigo <span class="text-danger">*</span></label>
+            <label class="mb-2">Codigo <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -255,7 +217,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-8">
-                    <label class="mb-2">Nombre del Producto o Servicio <span class="text-danger">*</span></label>
+                    <label class="mb-2">Nombre del Producto o Servicio <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -275,7 +237,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-4">
-           <label class="mb-2">Categoria <span class="text-danger">*</span></label>
+           <label class="mb-2">Categoria <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
@@ -296,7 +258,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-<label class="mb-2">Unidad Medida <span class="text-danger">*</span></label>
+<label class="mb-2">Unidad Medida <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
@@ -340,7 +302,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-4">
-           <label class="mb-2">Precio Compra  <span class="text-danger">*</span></label>
+           <label class="mb-2">Precio Compra  <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -357,7 +319,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-<label class="mb-2">Precio Venta  <span class="text-danger">*</span></label>
+<label class="mb-2">Precio Venta  <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -374,7 +336,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-<label class="mb-2">Stock Inicial  <span class="text-danger">*</span></label>
+<label class="mb-2">Stock Inicial  <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -391,7 +353,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-<label class="mb-2">Stock Minimo <span class="text-danger">*</span></label>
+<label class="mb-2">Stock Minimo <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -411,7 +373,7 @@ precio -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger text-white" onclick="actualizarProducto()">Actualizar</button>
-        <button type="button" class="btn btn-primary" onclick="crearProducto()" id="guardarprouducto">Guardar</button>
+        <button type="button" class="btn naraja-background" onclick="crearProducto()" id="guardarprouducto">Guardar</button>
       </div>
     </div>
   </div>
@@ -429,7 +391,7 @@ precio -->
         
         <div class="row">
           <div class="col-md-3">
-            <label class="mb-2">Codigo <span class="text-danger">*</span></label>
+            <label class="mb-2">Codigo <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -463,7 +425,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-                    <label class="mb-2">Stock <span class="text-danger">*</span></label>
+                    <label class="mb-2">Stock <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -480,7 +442,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-                    <label class="mb-2">Cantidad <span class="text-danger">*</span></label>
+                    <label class="mb-2">Cantidad <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -499,7 +461,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-12">
-           <label class="mb-2">Motivo del ingreso <span class="text-danger">*</span></label>
+           <label class="mb-2">Motivo del ingreso <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
@@ -540,8 +502,8 @@ precio -->
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="registrarEntrada()">Guardar</button>
+        <button type="button" class="btn btn-danger text-white" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn naraja-background" onclick="registrarEntrada()">Guardar</button>
       </div>
     </div>
   </div>
@@ -559,7 +521,7 @@ precio -->
         
         <div class="row">
           <div class="col-md-3">
-            <label class="mb-2">Codigo  <span class="text-danger">*</span></label>
+            <label class="mb-2">Codigo  <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -593,7 +555,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-                    <label class="mb-2">Stock <span class="text-danger">*</span></label>
+                    <label class="mb-2">Stock <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -610,7 +572,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-2">
-                    <label class="mb-2">Cantidad <span class="text-danger">*</span></label>
+                    <label class="mb-2">Cantidad <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -629,7 +591,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-12">
-           <label class="mb-2">Motivo de la salida <span class="text-danger">*</span></label>
+           <label class="mb-2">Motivo de la salida <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <select
                         class="form-control form-control-sm"
@@ -653,7 +615,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-12">
-           <label class="mb-2">Observacion <span class="text-danger">*</span></label>
+           <label class="mb-2">Observacion <span class="color-naranja">*</span></label>
                     <div class="input-group">
                       <textarea 
                         class="form-control form-control-sm"
@@ -671,8 +633,8 @@ precio -->
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="registrarSalida()">Guardar</button>
+        <button type="button" class="btn btn-danger text-white" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn naraja-background" onclick="registrarSalida()">Guardar</button>
       </div>
     </div>
   </div>

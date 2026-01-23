@@ -14,6 +14,7 @@ precio -->
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>GymbroSoft - Planes</title>
     <?php require_once 'componentes/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('css/estilo.css') ?>">
   </head>
   <body>
       <?php require_once 'componentes/navbar.php'; ?>
@@ -29,11 +30,11 @@ precio -->
                           <table class="table table-striped table-hover" id="tabla-membresias">
                             <thead>
                               <tr> 
-                                <th class="text-uppercase bg-danger">Codigo</th>
-                                <th class="text-uppercase bg-danger">Nombre</th>
-                                <th class="text-uppercase bg-danger">Días</th>
-                                <th class="text-uppercase bg-danger">Precio</th>
-                                <th class="text-uppercase bg-danger"></th>
+                                <th class="text-uppercase naraja-background">Codigo</th>
+                                <th class="text-uppercase naraja-background">Nombre</th>
+                                <th class="text-uppercase naraja-background">Días</th>
+                                <th class="text-uppercase naraja-background">Precio</th>
+                                <th class="text-uppercase naraja-background"></th>
                               </tr>
                             </thead>
                             <tbody>
@@ -70,30 +71,30 @@ precio -->
                         <div class="card-body">
                           <form>
                             <div class="form-group">
-                                <label>Codigo <span class="text-danger">*</span></label>
+                                <label>Codigo </label>
                                 <input type="text" class="form-control" id="codigo" readonly>
                             </div>
                             <div class="form-group mt-2">
-                                <label>Nombre <span class="text-danger">*</span></label>
+                                <label>Nombre <span class="color-naranja">*</span></label>
                                 <input type="text" class="form-control" id="nombre" >
                             </div>
                             <div class="form-group mt-2">
-                                <label for="dias">Días <span class="text-danger">*</span></label>
+                                <label for="dias">Días <span class="color-naranja">*</span></label>
                                 <input type="number" class="form-control" id="dias" >
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Precio <span class="text-danger">*</span> </label>
+                                <label for="precio">Precio <span class="color-naranja">*</span> </label>
                                 <input type="number" class="form-control" id="precio">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="precio">Estado <span class="text-danger">*</span></label>
+                                <label for="precio">Estado <span class="color-naranja">*</span></label>
                                 <select class="form-control" id="estado">
                                   <option value="Activo">Activo</option>
                                   <option value="Inactivo">Inactivo</option>
                                 </select>
                             </div>
-                            <button type="button" class="btn btn-primary mt-3" onclick="crearMembresia()" id="crear">Aceptar</button>
-                            <button type="button" class="btn btn-success mt-3 mx-2 text-white" onclick="actualizarMembresia()" id="actualizar" disabled>Actualizar</button>
+                            <button type="button" class="btn naraja-background mt-3" onclick="crearMembresia()" id="crear">Aceptar</button>
+                            <button type="button" class="btn btn-danger mt-3 mx-2 text-white" onclick="actualizarMembresia()" id="actualizar" disabled>Actualizar</button>
                           </form>
                         </div>
                       </div>

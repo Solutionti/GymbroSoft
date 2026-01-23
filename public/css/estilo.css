@@ -1,0 +1,45 @@
+.naraja-background {
+    background-color: #C76E00 !important; /* Color naranja */
+}
+.color-naranja {
+    color: #C76E00 !important; /* Color naranja */
+}
+
+.avatar-container {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: auto;
+}
+
+.avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+/* Overlay */
+.avatar-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  transition: opacity 0.3s;
+}
+
+.avatar-container:hover .avatar-overlay {
+  opacity: 1;
+}

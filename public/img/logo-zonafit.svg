@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 100">
+  <!-- Texto ZONA -->
+  <text x="80" y="45" text-anchor="middle" font-family="Arial Black, Helvetica, sans-serif" font-size="38" font-weight="900" fill="#ffffff" letter-spacing="1">ZONA</text>
+  
+  <!-- Línea decorativa -->
+  <rect x="30" y="52" width="100" height="3" rx="1.5" ry="1.5" fill="#ffffff"/>
+  
+  <!-- Texto FIT -->
+  <text x="80" y="88" text-anchor="middle" font-family="Arial Black, Helvetica, sans-serif" font-size="38" font-weight="900" fill="#ffffff" letter-spacing="1">FIT</text>
+</svg>

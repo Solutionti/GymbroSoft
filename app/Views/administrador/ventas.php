@@ -14,6 +14,7 @@ precio -->
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>GymbroSoft - Ventas</title>
     <?php require_once 'componentes/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('css/estilo.css') ?>">
   </head>
   <body>
       <?php require_once 'componentes/navbar.php'; ?>
@@ -181,7 +182,7 @@ precio -->
                 </dl>
               </div>
               <button
-                class="btn btn-success btn-lg btn-block text-white"
+                class="btn naraja-background btn-lg btn-block text-white"
                 type="button"
                 onclick="finalizarVenta()"
                 id="crearventa"
@@ -225,7 +226,7 @@ precio -->
       <div class="modal-body">
         <div class="row">
           <div class="col-md-4">
-<label class="mb-2">Documento (*)</label>
+            <label class="mb-2">Documento <span class="color-naranja"> *</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -242,7 +243,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-<label class="mb-2">Nombres (*)</label>
+<label class="mb-2">Nombres <span class="color-naranja"> *</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -258,7 +259,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-4">
-             <label class="mb-2">Apellidos (*)</label>
+             <label class="mb-2">Apellidos <span class="color-naranja"> *</span></label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -277,7 +278,7 @@ precio -->
         <!--  -->
         <div class="row mt-3">
           <div class="col-md-3">
-<label class="mb-2">Telefono (*)</label>
+<label class="mb-2">Telefono <span class="color-naranja"> *</span></label>
                     <div class="input-group">
                       <input 
                         type="number"
@@ -294,7 +295,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-6">
-<label class="mb-2">Correo (*)</label>
+<label class="mb-2">Correo </label>
                     <div class="input-group">
                       <input 
                         type="text"
@@ -311,7 +312,7 @@ precio -->
                     </div>
           </div>
           <div class="col-md-3">
-<label class="mb-2">Sexo (*)</label>
+            <label class="mb-2">Sexo <span class="color-naranja"> *</span></label>
                     <div class="input-group">
                       
                       <select
@@ -333,8 +334,8 @@ precio -->
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="crearDeportista()">Guardar</button>
+        <button type="button" class="btn btn-danger text-white" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn naraja-background" onclick="crearDeportista()">Guardar</button>
       </div>
     </div>
   </div>
@@ -355,11 +356,11 @@ precio -->
           <table class="table table-bordered table-striped table-hover" id="tablaProductosVenta">
             <thead>
               <tr class="bg-danger">
-                <th class="bg-danger text-uppercase" ><i class="fas fa-barcode"></i> Codigo</th>
-                <th class="bg-danger text-uppercase">Nombre</th>
-                <th class="bg-danger text-uppercase">Precio</th>
-                <th class="bg-danger text-uppercase">Stock</th>
-                <th class="bg-danger text-uppercase" ></th>
+                <th class="naraja-background text-uppercase" ><i class="fas fa-barcode"></i> Codigo</th>
+                <th class="naraja-background text-uppercase">Nombre</th>
+                <th class="naraja-background text-uppercase">Precio</th>
+                <th class="naraja-background text-uppercase">Stock</th>
+                <th class="naraja-background text-uppercase" ></th>
               </tr>
             </thead>
             <tbody>
@@ -393,7 +394,7 @@ precio -->
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Cerrar</button> -->
-        <button type="button" class="btn btn-primary">Aceptar</button>
+        <button type="button" class="btn naraja-background">Aceptar</button>
       </div>
     </div>
   </div>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="gradientBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradientAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Círculo de fondo -->
+  <circle cx="100" cy="100" r="95" fill="url(#gradientBg)"/>
+  
+  <!-- Pesa/Mancuerna estilizada -->
+  <g fill="#ffffff">
+    <!-- Barra central -->
+    <rect x="45" y="92" width="110" height="16" rx="8" ry="8"/>
+    
+    <!-- Disco izquierdo exterior -->
+    <rect x="25" y="60" width="20" height="80" rx="4" ry="4"/>
+    
+    <!-- Disco izquierdo interior -->
+    <rect x="45" y="70" width="15" height="60" rx="3" ry="3"/>
+    
+    <!-- Disco derecho exterior -->
+    <rect x="155" y="60" width="20" height="80" rx="4" ry="4"/>
+    
+    <!-- Disco derecho interior -->
+    <rect x="140" y="70" width="15" height="60" rx="3" ry="3"/>
+  </g>
+  
+  <!-- Detalles de brillo -->
+  <g fill="url(#gradientAccent)" opacity="0.6">
+    <rect x="27" y="65" width="4" height="30" rx="2" ry="2"/>
+    <rect x="157" y="65" width="4" height="30" rx="2" ry="2"/>
+  </g>
+  
+  <!-- Texto GYMBRO -->
+  <text x="100" y="175" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" letter-spacing="2">GYMBRO</text>
+</svg>

@@ -2,7 +2,7 @@
       <div class="sidebar-header border-bottom">
         <div class="sidebar-brand">
           <img 
-            src="https://static.vecteezy.com/system/resources/thumbnails/051/226/424/small/abstract-flame-logo-design-with-orange-yellow-and-brown-shades-ideal-for-business-branding-technology-companies-and-modern-designs-png.png"
+            src="<?= base_url('img/logo-zonafit.svg') ?>"
             class="img-fluid mx-1"
             width="80"
           >
@@ -43,7 +43,7 @@
             <i class="fas fa-cart-arrow-down mx-3"></i> Productos</a>
         </li>
         <li class="nav-title">Version</li>
-        <!-- <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
+        <!-- <li class="nav-group"><a class="nav-link nav-group-toggle" >
             <svg class="nav-icon">
               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
             </svg> Notifications</a>
@@ -69,21 +69,21 @@
           </button>
           <ul class="header-nav d-none d-lg-flex">
             <li class="nav-item">
-              <a class="nav-link text-uppercase" href="#">
+              <a class="nav-link text-uppercase" >
                 <?= session()->get('nombre') ?>
               </a>
             </li>
           </ul>
           <ul class="header-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#">
+            <li class="nav-item"><a class="nav-link" >
                 <i class="fas fa-bell"></i>
             </a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">
+            <li class="nav-item"><a class="nav-link" >
                <i class="fas fa-tasks"></i>
               </a>
             </li>
-            <li class="nav-item"><a class="nav-link" href="#">
+            <li class="nav-item"><a class="nav-link" >
                 <i class="fas fa-envelope">
             </i> 
            </a>
@@ -124,16 +124,20 @@
             <li class="nav-item py-1">
               <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
             </li>
-            <li class="nav-item dropdown"><a class="nav-link py-0 pe-0" data-coreui-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown"><a class="nav-link py-0 pe-0" data-coreui-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
                 <div class="avatar avatar-md">
-                    <img class="avatar-img " src="https://coreui.io/demos/bootstrap/5.3/free/assets/img/avatars/2.jpg" alt="user@email.com">
+                    <img
+                      class="avatar-img"
+                      src="https://ui-avatars.com/api/?name=<?= session()->get('nombre'); ?>&size=128&background=4f46e5&color=fff"
+                      alt="user@email.com"
+                    >
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
-                <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2">Cuenta</div><a class="dropdown-item" href="#">
+                <div class="dropdown-header bg-body-tertiary text-body-secondary fw-semibold rounded-top mb-2">Cuenta</div><a class="dropdown-item" >
                  <!-- <svg class="icon me-2">
                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                  </svg> Configuracion</a><a class="dropdown-item" href="#">  -->
+                  </svg> Configuracion</a><a class="dropdown-item" >  -->
                 <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?php echo base_url(); ?>cerrarsesion">
                   <svg class="icon me-2">

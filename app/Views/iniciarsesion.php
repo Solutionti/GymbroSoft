@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
     <base href="./">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +13,8 @@
     <link rel="stylesheet" href="<?= base_url('fontawesome/css/fontawesome.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('fontawesome/css/brands.css') ?>">
     <link rel="stylesheet" href="<?= base_url('fontawesome/css/solid.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('css/estilo.css') ?>">
+
     <link rel="stylesheet" href="https://coreui.io/demos/bootstrap/5.3/free/vendors/simplebar/css/simplebar.css">
     <link rel="stylesheet" href="https://coreui.io/demos/bootstrap/5.3/free/css/vendors/simplebar.css">
     <link href="https://coreui.io/demos/bootstrap/5.3/free/css/style.css" rel="stylesheet">
@@ -31,9 +32,10 @@
                 <div class="card-body">
                   <div class="text-center">
                     <img
-                      src="https://static.vecteezy.com/system/resources/thumbnails/051/226/424/small/abstract-flame-logo-design-with-orange-yellow-and-brown-shades-ideal-for-business-branding-technology-companies-and-modern-designs-png.png"
+                      src="<?= base_url('img/logo-zonafit.svg') ?>"
+                      alt="ZonaFit Logo"
                       class="mb-3"
-                      width="80"
+                      width="90"
                     >
                   </div>
                   <h1 class="">Iniciar Sesión</h1>
@@ -68,21 +70,21 @@
                     <div class="col-6">
                       <button
                         type="submit"
-                        class="btn btn-primary px-4 mt-3"
+                        class="btn naraja-background px-4 mt-3"
                         id="login"
                       >
                         Ingresar
                       </button>
                     </div>
                     <div class="col-6 text-end">
-                      <button class="btn btn-link px-0" type="button">¿Has olvidado tu contraseña?</button>
+                      <button class="btn btn-link px-0 text-white" type="button">¿Has olvidado tu contraseña?</button>
                     </div>
                   </div>
                   </form>
 
                 </div>
               </div>
-              <div class="card col-md-5 text-white bg-primary py-5">
+              <div class="card col-md-5 text-white naraja-background py-5">
                 <div class="card-body text-center">
                   <div>
                     <h2>Inscribirse</h2>

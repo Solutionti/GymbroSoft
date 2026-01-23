@@ -14,6 +14,7 @@ precio -->
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>GymbroSoft - Pagos</title>
     <?php require_once 'componentes/head.php'; ?>
+    <link rel="stylesheet" href="<?= base_url('css/estilo.css') ?>">
   </head>
   <body>
       <?php require_once 'componentes/navbar.php'; ?>
@@ -81,14 +82,14 @@ precio -->
                           <table class="table table-striped table-hover" id="tabla-pagos">
                             <thead>
                               <tr> 
-                                <th class="text-uppercase bg-danger"></th>
-                                <th class="text-uppercase bg-danger">Deportista</th>
-                                <th class="text-uppercase bg-danger">Consecutivo</th>
-                                <th class="text-uppercase bg-danger">Fecha</th>
-                                <th class="text-uppercase bg-danger">Total pagado</th>
-                                <th class="text-uppercase bg-danger">Membresia</th>
-                                <th class="text-uppercase bg-danger">Estado</th>
-                                <th class="text-uppercase bg-danger"></th>
+                                <th class="text-uppercase naraja-background"></th>
+                                <th class="text-uppercase naraja-background">Deportista</th>
+                                <th class="text-uppercase naraja-background">Consecutivo</th>
+                                <th class="text-uppercase naraja-background">Fecha</th>
+                                <th class="text-uppercase naraja-background">Total pagado</th>
+                                <th class="text-uppercase naraja-background">Membresia</th>
+                                <th class="text-uppercase naraja-background">Estado</th>
+                                <th class="text-uppercase naraja-background"></th>
                               </tr>
                             </thead>
                             <tbody>
@@ -98,7 +99,7 @@ precio -->
                                   <div class="avatar avatar-md">
                                   <img 
                                     class="avatar-img"
-                                    src="https://ui-avatars.com/api/?name=<?= $pagos->nombre .'+'. $pagos->apellido;?>&size=128&background=4f46e5&color=fff"
+                                    src="https://ui-avatars.com/api/?name=<?= $pagos->nombre .'+'. $pagos->apellido;?>&size=128&background=C76E00&color=fff"
                                     alt="user@email.com"
                                   >
                                     <span class="avatar-status bg-success"></span>
