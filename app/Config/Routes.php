@@ -39,6 +39,7 @@ $routes->get('/clases', 'Clases::index');
 $routes->post('clases/crearHorario', 'Clases::crearHorario');
 $routes->post('clases/crearClaseCalendario', 'Clases::crearClaseCalendario');
 $routes->get('clases/getClasesHorarios', 'Clases::getClasesHorarios');
+$routes->post('clases/crearentrenador', 'Clases::crearEntrenador');
 
 
 // 

@@ -86,6 +86,7 @@ function crearClaseCalendario() {
   let hora = $("#hora_calendario").val();
   let evento = $("#evento_calendario").val();
   let descripcion = $("#descripcion_calendario").val();
+  let entrenador = $("#entrenador_calendario").val();
   let url = baseurl + "clases/crearClaseCalendario";
 
   $.ajax({
@@ -96,13 +97,45 @@ function crearClaseCalendario() {
       fechafinal: fechafinal,
       hora: hora,
       evento: evento,
-      descripcion: descripcion
+      descripcion: descripcion,
+      entrenador: entrenador
     },
     dataType: "json",
     success: function (response) {
         $("body").overhang({
           type: "success",
           message: "Clase programada con exito"
+        });
+        setTimeout(reloadPage, 3000);
+
+    },
+    error: function (xhr, status, error) {
+      $("body").overhang({
+        type: "error",
+        message: "Alerta ! Tenemos un problema al conectar con la base de datos verifica tu red.",
+      }); 
+    }
+  });
+}
+
+function crearEntrenador() {
+  let documento = $("#documento_entrenador").val();
+  let nombre = $("#nombre_entrenador").val();
+  let especialidad = $("#especialidad_entrenador").val();
+  let url = baseurl + "clases/crearentrenador";
+
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: {
+      documento: documento,
+      nombre: nombre,
+      especialidad: especialidad
+    },
+    success: function (response) {
+        $("body").overhang({
+          type: "success",
+          message: "Entrenador creado con exito"
         });
         setTimeout(reloadPage, 3000);
 

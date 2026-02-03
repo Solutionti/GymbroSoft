@@ -12,7 +12,8 @@ class Clases extends BaseController {
 
     public function index(): string {
       $data = [
-        "horario" => $this->clasesModel->getHorarios()
+        "horario" => $this->clasesModel->getHorarios(),
+        "entrenador" => $this->clasesModel->getEntrenadores(),
       ];
       return view('administrador/programacionclases', $data);
     }
@@ -38,6 +39,7 @@ class Clases extends BaseController {
         "fechafin" => $this->request->getPost('fechafinal'),
         "hora" => $this->request->getPost('hora'),
         "descripcion" => $this->request->getPost('descripcion'),
+        "entrenador" => $this->request->getPost('entrenador'),
       ];
       $this->clasesModel->CrearClase($data);
      
@@ -63,13 +65,24 @@ class Clases extends BaseController {
         "clase_codigo" => $this->request->getPost('clase_codigo'),
       ];
       $this->clasesModel->crearInscripcion($data);
-      echo "hola";
-      exit;
 
       return $this->response->setJSON([
         "status"  => "success",
         "message" => "Se ha inscrito a la clase correctamente"
       ]);
+    }
+
+    public function crearEntrenador() {
+      
+      $data = [
+        "documento" => $this->request->getPost('documento'),
+        "nombres" => $this->request->getPost('nombre'),
+        "especialidad" => $this->request->getPost('especialidad'),
+      ];
+      
+      $this->clasesModel->crearEntrenador($data);
+      echo "hola";
+      exit;
     }
 
 }

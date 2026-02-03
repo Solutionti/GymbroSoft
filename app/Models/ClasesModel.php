@@ -34,6 +34,7 @@ class ClasesModel extends Model {
         "usuario" => session()->get('documento'),
         "color" => "green",
         "descripcion" => $data["descripcion"],
+        "entrenador" => $data["entrenador"],
       ];
         $this->db->table("clases")
                  ->insert($clases);
@@ -67,6 +68,25 @@ class ClasesModel extends Model {
       $this->db->table("inscripciones")
                ->insert($inscripcion);
 
+    }
+
+    public function crearEntrenador($data) {
+      $entrenador = [
+        "documento" => $data["documento"],
+        "nombre" => $data["nombres"],
+        "especialidad" => $data["especialidad"],
+        "estado" => "Activo",
+      ];
+      $this->db->table("entrenadores")
+               ->insert($entrenador);
+    }
+
+    public function getEntrenadores() {
+      $entrenadores = $this->db->table("entrenadores")
+                           ->select('*')
+                           ->get();
+
+      return $entrenadores;
     }
 
 }

@@ -36,9 +36,14 @@ precio -->
           </div>
           <div class="col-md-4">
             <div class="card mb-4">
-              <div class="card-header">Horarios 
-                <a href="#" data-coreui-toggle="modal" data-coreui-target="#listahorarios">
-                  <i class=" fas fa-calendar-alt text-danger"></i>
+              <div class="card-header">
+                
+                <a class="nav-item mx-2 text-white" style="text-decoration: none;" href="#" data-coreui-toggle="modal" data-coreui-target="#listahorarios">
+                  Horarios  <i class=" fas fa-calendar-alt text-danger"></i>
+                </a>
+                 
+                <a class="nav-item mx-2 text-white" style="text-decoration: none;" href="#" data-coreui-toggle="modal" data-coreui-target="#listaentrenadores">
+                  Entrenadores <i class="fas fa-running text-danger"></i>
                 </a>
               </div>
                 <div class="card-body">
@@ -75,7 +80,7 @@ precio -->
         <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <label for="">Nombre <span class="color-naranja"> *</span></label>
+        <label>Nombre <span class="color-naranja"> *</span></label>
         <div class="input-group mb-3">
           <span class="input-group-text">
             <i class="fas fa-dumbbell"></i>
@@ -87,7 +92,7 @@ precio -->
           >
         </div>
         <!--  -->
-        <label for="">Horarios <span class="color-naranja"> *</span></label>
+        <label>Horarios <span class="color-naranja"> *</span></label>
         <div class="input-group mb-3">
           <span class="input-group-text">
             <i class="fas fa-calendar"></i>
@@ -99,7 +104,7 @@ precio -->
           >
         </div>
         <!--  -->
-        <label for="">Hora <span class="color-naranja"> *</span></label>
+        <label>Hora <span class="color-naranja"> *</span></label>
         <div class="input-group mb-3">
           <span class="input-group-text">
             <i class="fas fa-clock"></i>
@@ -119,6 +124,63 @@ precio -->
   </div>
 </div>
 
+<!-- LISTA DE ENTRENADORES  -->
+<div class="modal fade" id="listaentrenadores" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="listaentrenadoresLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-uppercase" id="listaentrenadoresLabel">ENTRENADORES</h5>
+        <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label>Documento <span class="color-naranja"> *</span></label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <i class="fas fa-database"></i>
+          </span>
+          <input
+            class="form-control"
+            type="text"
+            id="documento_entrenador"
+          >
+        </div>
+        <!--  -->
+        <label>Nombre y Apellidos <span class="color-naranja"> *</span></label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <i class="fas fa-dumbbell"></i>
+          </span>
+          <input
+            class="form-control"
+            type="text"
+            id="nombre_entrenador"
+          >
+        </div>
+        <!--  -->
+        
+        <!--  -->
+        <label>Especialidad <span class="color-naranja"> *</span></label>
+        <div class="input-group mb-3">
+          <span class="input-group-text">
+            <i class="fas fa-database"></i>
+          </span>
+          <input
+            class="form-control"
+            type="text"
+            id="especialidad_entrenador"
+          >
+        </div>
+        <!--  -->
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger text-white" data-coreui-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn naraja-background" onclick="crearEntrenador()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- LISTA DE HORARIOS  -->
 <div class="modal fade" id="programaciondeclases" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="programaciondeclasesLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -130,7 +192,7 @@ precio -->
       <div class="modal-body">
         <div class="row">
           <div class="col-md-5">
-            <label for="">Fecha inicial <span class="color-naranja"> *</span></label>
+            <label>Fecha inicial <span class="color-naranja"> *</span></label>
             <div class="input-group mb-3">
               <span class="input-group-text">
                 <i class="fas fa-calendar"></i>
@@ -143,7 +205,7 @@ precio -->
             </div>
           </div>
           <div class="col-md-4">
-          <label for="">Fecha Final <span class="color-naranja"> *</span></label>
+          <label>Fecha Final <span class="color-naranja"> *</span></label>
             <div class="input-group mb-3">
               <span class="input-group-text">
                 <i class="fas fa-calendar"></i>
@@ -156,7 +218,7 @@ precio -->
             </div>
           </div>
           <div class="col-md-3">
-            <label for="">Hora <span class="color-naranja"> *</span></label>
+            <label>Hora <span class="color-naranja"> *</span></label>
             <div class="input-group mb-3">
               <span class="input-group-text">
                 <i class="fas fa-clock"></i>
@@ -171,8 +233,8 @@ precio -->
         </div>
         <!--  -->
         <div class="row">
-          <div class="col-md-12">
-            <label for="">Evento <span class="color-naranja"> *</span></label>
+          <div class="col-md-6">
+            <label>Evento <span class="color-naranja"> *</span></label>
             <div class="input-group mb-3">
               <span class="input-group-text">
                 <i class="fas fa-calendar"></i>
@@ -189,12 +251,29 @@ precio -->
               </select>
             </div>
           </div>
+          <div class="col-md-6">
+            <label>Entrenador <span class="color-naranja"> *</span></label>
+            <div class="input-group mb-3">
+              <span class="input-group-text">
+                <i class="fas fa-running"></i>
+              </span>
+             
+              <select
+                class="form-control text-uppercase"
+                id="entrenador_calendario"
+              > 
+                <option value="">Seleccione el entrenador</option>
+                <?php foreach($entrenador->getResult() as $entrenadores): ?>
+                  <option value="<?= $entrenadores->documento; ?>"><?= $entrenadores->nombre .' ('.$entrenadores->especialidad.')'; ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+          </div>
         </div>
         <!--  -->
-        
         <div class="row">
           <div class="col-md-12">
-            <label for="">Descripcion</label>
+            <label>Descripcion</label>
             <div class="input-group mb-3">
               <textarea class="form-control" rows="5" id="descripcion_calendario"></textarea>
             </div>
